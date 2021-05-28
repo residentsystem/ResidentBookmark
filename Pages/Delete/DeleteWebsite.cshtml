@@ -1,0 +1,44 @@
+﻿@page "{id:int}"
+@model ResidentBookmark.Pages.DeleteWebsiteModel
+@{
+}
+    
+<div class="container intro">
+    <section class="row col-sm-12">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+            <header>
+                <h1>Delete Website - @Model.Website.Name</h1>
+            </header>
+        </article>
+    </section>
+</div>
+
+<div class="container">
+    <section class="row col-sm-12">
+        <article class="col-sm-12 col-md-12 col-lg-8 col-center">
+
+            <div class="scan-column-main">
+                <h2>Are you sure you want to remove this website?</h2>
+                <hr />
+                <div class="box-website">
+
+                    <h3>@Model.Website.Name</h3>
+                        <a href="@Model.Website.Location">@Model.Website.Location</a>
+                        <p>@Model.Website.Note</p>
+                        <p>@Model.Website.Date.ToString("MM/dd/yyyy")</p>
+
+                    </div>
+                    <div class="box-website-menu">
+                            
+                        <form method="post">
+                            <input type="hidden" asp-for="Website.WebsiteId" />
+                            <input class="btn btn-dark" type="submit" value="Yes" /> 
+                            <a class="btn btn-dark" asp-page="../Index">No</a>
+                        </form>
+
+                    </div>
+            </div>
+
+        </article>
+    </section>
+</div>

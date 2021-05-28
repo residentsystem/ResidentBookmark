@@ -1,0 +1,13 @@
+{
+  "ConnectionString": {
+    "Development": "Data Source=Bookmark.db;",
+    "Staging": "server=localhost;port=3306;database=database;user=username;password=password",
+    "Production": "server=localhost;port=3306;database=database;user=username;password=password"
+  },
+
+  "BookmarkSettings": {
+    "Title": "Resident Bookmarks",
+    "ShowLimit": "6",
+    "SortWebsite": "date"
+  }
+}

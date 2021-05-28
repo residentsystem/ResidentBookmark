@@ -1,0 +1,89 @@
+@page
+@model ResidentBookmark.Pages.LabelModel
+@{
+}
+
+<div class="container intro">
+    <section class="row">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+            <header>
+                <h1>@Model.QueryString</h1>
+            </header>
+        </article>
+    </section>
+</div>
+
+<div class="container">
+    <section class="row">
+        <article class="col-sm-12 col-md-12 col-lg-3">
+            <div class="scan-column-left txt-wd-100">
+                <h2>Label</h2>
+                @foreach (var label in Model.ListOfLabelsWebsiteCount)
+                {
+                    <p>@label.Key (@label.Value)</p>
+                    <p>@Model.LabelDescription</p>
+                }
+            </div>
+        </article>
+        <article class="col-sm-12 col-md-12 col-lg-6">
+            <div class="scan-column-main">
+                <h2>Bookmarks (@Model.ListOfWebsitesFromLabels.Count())</h2>
+
+                @if (Model.ShowLabelEmptyMessage)
+                {
+                    <div>
+                        <p>@Model.LabelEmptyMessage</p>
+                        <p>Do you want to <a asp-page="/Add/AddWebsite" asp-page-handler="@Model.QueryString">add a website</a>?</p>
+                    </div>
+
+                    <div class="box-website-menu">
+                        <a asp-page="/Index">Back</a>
+                    </div>
+                }
+                else 
+                {
+                    @foreach (var website in Model.ListOfWebsitesFromLabels)
+                    {
+                        <div class="box-website">
+                            <h3>@website.Name</h3>
+                            <a href="@website.Location">@website.Location</a>
+                            <p class="note">@website.Note</p>
+                            <p class="date">@website.Date.ToString("MM/dd/yyyy")</p>
+                        </div>
+
+                        <div class="box-website-menu">
+                            <a asp-page="/Edit/EditWebsite" asp-route-id="@website.WebsiteId">Edit</a> <span> - </span>
+                            <a asp-page="/Delete/DeleteWebsite" asp-route-id="@website.WebsiteId">Delete</a>
+                        </div>
+                    }
+                }
+            </div>
+        </article>
+        <article class="col-sm-12 col-md-12 col-lg-3">
+            <div class="scan-column-right">
+                <h2>Menu</h2>
+                <a class="btn btn-dark" asp-page="/Index">Home</a>
+                <a class="btn btn-dark" asp-page="/Add/AddWebsite" asp-page-handler="@Model.QueryString">Add a Website</a>
+
+                @if (!Model.ShowLabelEmptyMessage && Model.NumberOfWebsites > 1)
+                {
+                    @if (@Model.SortOptionQueryString == "date")
+                    {
+                        <a class="btn btn-dark" asp-page="/Label" asp-page-handler="@Model.QueryString" asp-route-sort="date">Sorted By Date</a>
+                        <a class="btn btn-dark" asp-page="/Label" asp-page-handler="@Model.QueryString" asp-route-sort="website">Sort By Website</a>
+                    }
+                    else if (@Model.SortOptionQueryString == "website")
+                    {
+                        <a class="btn btn-dark" asp-page="/Label" asp-page-handler="@Model.QueryString" asp-route-sort="date">Sort By Date</a>
+                        <a class="btn btn-dark" asp-page="/Label" asp-page-handler="@Model.QueryString" asp-route-sort="website">Sorted By Website</a>
+                    }
+                    else 
+                    {
+                        <a class="btn btn-dark" asp-page="/Label" asp-page-handler="@Model.QueryString" asp-route-sort="date">Sort By Date</a>
+                        <a class="btn btn-dark" asp-page="/Label" asp-page-handler="@Model.QueryString" asp-route-sort="website">Sort By Website</a>
+                    }
+                }
+            </div>
+        </article>
+    </section>
+</div>

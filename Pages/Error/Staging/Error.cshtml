@@ -1,0 +1,62 @@
+﻿@page
+@model ErrorModel
+@{
+}
+
+<div class="container error">
+    <section class="row col-sm-12">
+        <article class="col-sm-12 col-md-12 col-lg-8 col-center">
+
+            <div class="box-error-title">
+                <h1>Error.</h1>
+                <h2>An error occurred while processing your request.</h2>
+            </div>
+
+            <div class="box-error-image">
+                <figure>
+                    <img class="img-fluid" src="~/images/error/overworked.png" alt="Resident System web design company" />
+                </figure>
+            </div>
+
+            <hr />
+            
+            <div class="box-error-message">
+
+                @if (Model.ShowRequestId)
+                {
+                    <h3>Request ID: <code>@Model.RequestId</code></h3>
+                }
+
+                @if (Model.ShowReferrer)
+                {
+                    <h3>Referrer: <a href="@Model.Referrer">@Model.Referrer</a></h3>
+                }
+
+                @if (Model.ShowExceptionMessage)
+                {
+                    <h3>Exception Message:</h3>
+                    <p>@Model.ExceptionMessage</p>
+                }
+
+                @if (Model.ShowMySqlExeptionMessage)
+                {
+                    <h3>Exception Message:</h3>
+                    <p>@Model.MySqlExeptionMessage</p>
+                }
+
+            </div>
+
+            <hr />
+
+            <div class="box-error-contact">
+                <h3>Contact us</h3>
+                <p>Need help? Please send us an email if the issue persist.</p>
+                <a class="btn btn-dark" href="mailto:service@residentsystem.com" title="Contact us" role="button">Send email</a>
+                <a class="btn btn-dark" href="/Index" title="Cancel" role="button">Cancel</a>
+            </div>
+            
+        </article>
+    </section>
+</div>
+
+<script src="~/js/error.js"></script>

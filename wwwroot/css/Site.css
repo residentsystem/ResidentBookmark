@@ -1,0 +1,452 @@
+﻿/* -------------------------------------------- Font -------------------------------------------- */
+
+@font-face {
+    font-family: 'Rajdhani-Light';
+    src: url('../font/rajdhani/Rajdhani-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Rajdhani-Bold';
+    src: url('../font/rajdhani/Rajdhani-Bold.ttf') format('truetype');
+}
+
+/* -------------------------------------------- Body -------------------------------------------- */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    padding: 0;
+}
+
+body {
+    color: #1c1c1c;
+    background-attachment: fixed;
+    background-color: #f0f0f0;
+    background-image: url('../images/background/bookmark.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Rajdhani-Bold, sans-serif;
+    font-size: 110%;
+    line-height: 1.4em;
+    width: 100%;
+}
+
+#wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+#main {
+    padding: 0px;
+    padding-bottom: 200px; /* height of the footer */
+}
+
+#footer {
+    bottom: 0;
+    height: 200px; /* height of the footer */
+    /* position: absolute; */
+    width: 100%;
+}
+
+/* -------------------------------------------- Bootstrap -------------------------------------------- */
+
+.col-center, .col-center-logo, .col-center-footer {
+    float: none;
+}
+
+.col-center {
+    margin: 5% auto;
+}
+
+.col-center-logo {
+    display: block;
+    margin: 0 auto;
+}
+
+.col-center-footer {
+    margin: 1% auto;
+}
+
+.col-banner {
+    margin: 2% auto;
+    min-height: 68.75em;
+    width: 100%;
+}
+
+/* -------------------------------------------- Form -------------------------------------------- */
+
+label, input, input.btn-dark, a.btn-dark {
+    font-weight: 800;
+}
+
+input.btn-dark, a.btn-dark {
+    background-color: #111;
+    font-weight: 800;
+    margin-top: 0.5em;
+}
+
+a.btn-dark {
+    background-color: #111;
+    color: #f0f0f0;
+}
+
+a.btn-dark:hover {
+    background-color: #2b2b2b;
+    color: #f0f0f0;
+}
+
+/* -------------------------------------------- General -------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold; 
+    line-height: 1.2em; 
+    margin: 0.3em 0 0.3em 0; 
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.4em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+p {
+    font-size: 1.0em; 
+}
+
+em {
+    font-style: italic;
+}
+
+a, .scan-column-left p {
+    color: #0093d0;
+    font-size: 1.0em;
+    font-weight: bold; 
+    text-decoration: none;
+}
+
+a:hover, a:active, a:focus {
+    color: #04cbf5;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.message {
+    font-size: 1.1em; 
+    font-weight: bold; 
+    margin-bottom: 0.2em;
+}
+
+.date {
+    font-size: 1.1em;
+}
+
+/* -------------------------------------------- Display -------------------------------------------- */
+
+.scan-column-left {
+    position: relative;
+}
+
+.scan-column-left {
+    height: auto;
+    margin: 0.8em;
+    overflow: hidden;
+    padding: 0.6em;
+    width: 100%;
+}
+
+.scan-column-left.txt-wd-100 a, .scan-column-left.txt-wd-100 p {
+    float: left;
+    width: 100%;
+}
+
+.scan-column-main, .scan-column-right, .box-website, .box-website-label {
+    position: relative;
+}
+
+.scan-column-main, .scan-column-right {
+    height: auto;
+    margin: 0.8em;
+    overflow: hidden;
+    padding: 0.6em;
+    width: 100%;
+}
+
+.box-website-label {
+    background-color: #111;
+    opacity: 0.9;
+}
+
+.box-website-label:hover {
+    background-color: #151515;
+}
+
+.box-website-label a {
+    color: #fff;
+    display: block;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.box-website {
+    height: 100%;
+    padding: 0.3em;
+}
+
+.box-website, .box-website-menu {
+    background-color: rgba(240, 240, 240, 0.8);
+    border-right: 0.06em solid #d1d1d1;
+    border-bottom: 0.06em solid #d1d1d1;
+    padding: 0.3em;
+}
+
+.box-website h3, .box-website a, .box-website p {
+    display: block;
+    text-align: left;
+}
+
+.box-website p {
+    font-weight: bold;
+}
+
+.box-website a {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.box-website .note {
+    margin-top: 10px;
+}
+
+.box-website .date {
+    margin-right: 1%;
+    text-align: right;
+}
+
+.box-website-menu {
+    margin-top: 0.5em; 
+    margin-bottom: 1.0em;
+}
+
+.scan-column-right ul {
+    color: #f0f0f0;
+}
+
+.scan-column-right a, .scan-column-right li {
+    float: left;
+    width: 100%;
+}
+
+.scan-column-right ul li {
+    border-radius: 5px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1), 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+    height: 180px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.scan-column-right ul li p.count {
+    font-size: 2.4em;
+    padding: 60px 0 10px 0;
+}
+
+.scan-column-right li:nth-of-type(1) {
+    background-color: rgb(25, 99, 109);
+}
+
+.scan-column-right li:nth-of-type(2) {
+    background-color: #2a3086;
+}
+
+.scan-column-right li:nth-of-type(3) {
+    background-color: #922784;
+}
+
+/* -------------------------------------------- Error -------------------------------------------- */
+
+.box-error-title, .box-error-message, .box-error-contact {
+    color: #276783;
+    font-size: 1em; 
+    font-weight: bold;
+    height: auto; 
+    margin-top: 0.8em;
+    padding: 0.5em;
+    position: relative;
+}
+
+.box-error-title h1 {
+    font-size: 2em;
+}
+
+.box-error-image figure img {
+    display: block;
+    text-align: left;
+    height: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+}
+
+.box-error-message h3, .box-error-message p {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+}
+
+.error hr {
+    border-color: #276783;
+    border-style: solid;
+}
+
+/* -------------------------------------------- Navbar -------------------------------------------- */
+
+.navbar {
+    background-color: #111;
+    box-shadow: 1px 2px 4px rgba(37, 37, 37, 0.2);
+    height: auto;
+  }
+  
+  .navbar-nav {
+    width: auto;
+  }
+  
+  .navbar-nav .nav-link {
+    font-size: 0.9em;
+    font-weight: 600;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #0093d0;
+  }
+  
+  .nav-item.active .nav-link, 
+  .nav-item:hover .nav-link {
+    color: #04cbf5;
+  }
+  
+  .border-top {
+    border-top: 1px solid #e5e5e5;
+  }
+  
+  .border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+  }
+  
+  .box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  }
+  
+  .custom-toggler.navbar-toggler {
+    border-color: rgb(0, 147, 208);
+  }
+  
+  .custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,147,208, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+
+/* -------------------------------------------- Intro -------------------------------------------- */
+
+.intro figure img {
+    display: block; 
+    margin: 0 auto; 
+    min-width: 22.5em; 
+    max-width: 100%; 
+    height: auto;
+}
+
+.intro h1, .intro h2, .intro p, .intro a, .intro {
+    display: block;
+    text-align: center;
+}
+
+/* -------------------------------------------- Footer -------------------------------------------- */
+
+.footer {
+    background-color: #172533;
+    background-image: url("../images/footer/footer.png");
+    background-repeat: repeat;
+    font-size: 0.8em;
+}
+  
+.footer-menu {
+    padding: 10px;
+    text-align: left;
+}
+  
+.footer-submenu {
+    text-align: center;
+}
+  
+.footer-menu li:nth-of-type(1) {
+    font-size: 1em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+  
+.footer a {
+    color: #a5a5a5;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-decoration: none; 
+}
+  
+.footer-menu a.blue {
+    color: #0093d0;
+}
+  
+.footer a:hover, .footer a:active, .footer a:focus, 
+.footer-logo a:hover, .footer-logo a:active, .footer-logo a:focus {
+    color: #04cbf5;
+    text-decoration: underline;
+}
+  
+.footer p.title {
+    color: #a5a5a5;
+    font-size: 1.3em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+  
+.footer p {
+    color: #747474;
+}
+  
+.footer hr {
+    border: 1px solid #1d1d1d;
+    width: 100%;
+}
+  
+.footer-logo {
+    background-color: #0f1821;
+    font-size: 0.8em;
+    padding: 1% 0 0.8% 0;
+}
+  
+.footer-logo-menu li {
+    display: inline-block;
+}
+  
+.footer-logo-image {
+    margin: 0;
+}
+  
+.footer-logo-link {
+    margin-top: 20px;
+    margin-left: 10px;
+    vertical-align: top
+}
+
+.footer-social {
+    display: inline-block;
+    margin: 15px 3px 0 3px;
+  }

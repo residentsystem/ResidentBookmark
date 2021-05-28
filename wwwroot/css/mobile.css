@@ -1,0 +1,92 @@
+/* ----- Screens 320px or less ----- */
+@media (max-width: 320px) {
+
+}
+
+/* ----- Screens between 320px and 414px ----- */
+@media screen and (min-width: 320px) and  (max-width: 414px) {
+    h1 {
+        font-size: 1.6em;
+    }
+
+    .scan-column-left, .box-website, .scan-column-right {
+        padding: 8px;
+    }
+
+    .scan-column-main {
+        max-width: 100% !important;
+    }
+}
+
+/* ----- Screens between 768px and 992px ----- */
+@media (min-width: 768px) and (max-width: 992px) {
+
+    /* -------------------------------------------- Footer -------------------------------------------- */
+
+    .footer p.title {
+        font-size: 1em;
+    }    
+}
+
+/* ----- Screens 499px or less ----- */
+@media (max-width: 499px) {
+
+    /* -------------------------------------------- Footer -------------------------------------------- */
+
+    .footer-logo-image {
+        width: 100%;
+    }
+
+    .footer-logo-link {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+/* Mobile and Tablet Devices */
+
+@media screen and (min-width: 320px) and  (max-width: 768px) {
+
+    .scan-column-left, .scan-column-main, .scan-column-right {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box-website-label, .box-website {
+        width: 100%;
+    }
+
+    .box-website h3 {
+        font-size: 1em;
+    }
+
+    .box-website a {
+        font-size: 0.8em;
+    }
+
+    .box-website p {
+        font-size: 0.8em;
+    }
+
+    .box-website .date {
+        font-size: 0.9em;
+    }
+}
+
+/* Tablet Landscape */
+@media screen and (min-width: 768px) {
+
+    .box-website-label {
+        margin-left: 50%;
+        width: 50%;
+    }
+
+}
+
+/* Desktop Computers */
+@media screen and (min-width: 992px) {
+    .box-website-label {
+        margin-left: 50%;
+        width: 50%;
+    }
+}

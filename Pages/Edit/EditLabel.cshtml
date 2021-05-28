@@ -1,0 +1,50 @@
+﻿@page "{id:int}"
+@model ResidentBookmark.Pages.EditLabelModel
+@{
+}
+    <div class="container intro">
+        <section class="row">
+            <article class="col-sm-12">
+                <header>
+                    <h1>Edit Label - @Model.Label.Name</h1>
+                </header>
+            </article>
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="row">
+            <article class="col-sm-8 col-center">
+
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Label.LabelId" />
+                    
+                    <div class="form-group">
+                        <label asp-for="Label.Name" class="control-label">Name:</label>
+                        <input asp-for="Label.Name" class="form-control" name="Label.Name" value="@Model.Label.Name">
+                        <span asp-validation-for="Label.Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Label.Description" class="control-label">Description:</label>
+                        <input asp-for="Label.Description" class="form-control" name="Label.Description" value="@Model.Label.Description">
+                        <span asp-validation-for="Label.Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="hidden" asp-for="Label.LabelId" class="form-control" value="@Model.LabelId" />
+                    </div>
+
+                    <div class="form-group">
+                        <input class="btn btn-dark" type="submit" value="Update Label" />
+                        <a class="btn btn-dark" asp-page="/Index">Cancel</a>
+                    </div>
+                </form>
+            </article>
+        </section>
+    </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
