@@ -1,5 +1,3 @@
-using System;
-
 namespace ResidentBookmark.Services
 {
     public class FindArgumentNullException : ArgumentNullException

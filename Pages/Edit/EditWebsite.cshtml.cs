@@ -1,12 +1,3 @@
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using ResidentBookmark.Data;
-using ResidentBookmark.Models;
-using ResidentBookmark.Services;
-
 namespace ResidentBookmark.Pages
 {
     public class EditWebsiteModel : PageModel

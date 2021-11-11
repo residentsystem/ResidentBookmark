@@ -1,8 +1,8 @@
 {
   "ConnectionString": {
-    "Development": "Data Source=Bookmark.db;",
-    "Staging": "server=localhost;port=3306;database=database;user=username;password=password",
-    "Production": "server=localhost;port=3306;database=database;user=username;password=password"
+    "Development": "server=<server>;port=3306;database=<database>;user=<username>;password=<password>",
+    "Staging": "server=<server>;port=3306;database=<database>;user=<username>;password=<password>",
+    "Production": "server=<server>;port=3306;database=<database>;user=<username>;password=<password>"
   },
 
   "BookmarkSettings": {

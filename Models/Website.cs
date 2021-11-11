@@ -1,6 +1,3 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-
 namespace ResidentBookmark.Models
 {
     public class Website

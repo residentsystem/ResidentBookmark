@@ -1,7 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ResidentBookmark.Models;
-
 namespace ResidentBookmark.Data.Configurations
 {
     public class WebsiteConfiguration : IEntityTypeConfiguration<Website>

@@ -1,12 +1,3 @@
-using System.Diagnostics;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using ResidentBookmark.Services;
-using ResidentSystemLibrary.Database;
-
 namespace ResidentBookmark.Pages.Error.Production
 {
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

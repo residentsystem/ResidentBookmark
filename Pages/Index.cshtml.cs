@@ -1,15 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
-using ResidentBookmark.Configurations;
-using ResidentBookmark.Data;
-using ResidentBookmark.Interfaces;
-using ResidentBookmark.Models;
-using ResidentBookmark.Services;
-
-namespace ResidentBookmark.Pages
+﻿namespace ResidentBookmark.Pages
 {
     public class IndexModel : PageModel
     {

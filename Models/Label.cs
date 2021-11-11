@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
 namespace ResidentBookmark.Models
 {
     public class Label

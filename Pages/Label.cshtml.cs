@@ -1,12 +1,3 @@
-using System;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using ResidentBookmark.Data;
-using ResidentBookmark.Models;
-using ResidentBookmark.Services;
-
 namespace ResidentBookmark.Pages
 {
     public class LabelModel : PageModel

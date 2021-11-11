@@ -1,7 +1,3 @@
-using Microsoft.Extensions.Configuration;
-using ResidentBookmark.Configurations;
-using ResidentBookmark.Interfaces;
-
 namespace ResidentBookmark.Services
 {
     public class BookmarkService : IBookmarkService

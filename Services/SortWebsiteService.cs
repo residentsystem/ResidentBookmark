@@ -1,7 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using ResidentBookmark.Models;
-
 namespace ResidentBookmark.Services
 {
     public class SortWebsiteService

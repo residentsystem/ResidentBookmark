@@ -1,27 +1,44 @@
-﻿using System.IO;
-using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
+﻿var builder = WebApplication.CreateBuilder(args);
 
-namespace ResidentBookmark
+builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateWebHostBuilder(args).Build().Run();
-        }
+    config.SetBasePath(Directory.GetCurrentDirectory());
+    config.AddJsonFile("bookmarksettings.json", optional: true, reloadOnChange: true);
+})
+.UseContentRoot(Directory.GetCurrentDirectory());
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((configureDelegate) =>
-                {
-                    configureDelegate.SetBasePath(Directory.GetCurrentDirectory());
-                    configureDelegate.AddJsonFile("bookmarksettings.json", optional: true, reloadOnChange: true);
-                })
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
-                .UseStartup<Startup>();
-    }
+// Add services to the container.
+builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<ResidentBookmarkContext>();
+
+builder.Services.AddSingleton<IDatabaseConnection, DatabaseConnection>();
+builder.Services.AddSingleton<IBookmarkService, BookmarkService>();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
 }
+else if (app.Environment.IsStaging())
+{
+    app.UseExceptionHandler("/Error/Staging/Error");
+}
+else
+{
+    app.UseExceptionHandler("/Error/Production/Error");
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapRazorPages();
+
+app.Run();

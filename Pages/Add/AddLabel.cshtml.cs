@@ -1,9 +1,3 @@
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using ResidentBookmark.Data;
-using ResidentBookmark.Models;
-
 namespace ResidentBookmark.Pages
 {
     public class AddLabelModel : PageModel

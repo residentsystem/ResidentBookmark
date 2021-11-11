@@ -1,10 +1,3 @@
-using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
-using ResidentBookmark.Models;
-using ResidentSystemLibrary.Database;
-
 namespace ResidentBookmark.Data
 {
     public class ResidentBookmarkContext : DbContext
@@ -29,11 +22,10 @@ namespace ResidentBookmark.Data
             // Bind the content of default configuration file "bookmarksettings.json" to an instance of DatabaseSettings. 
             DatabaseEnvironment connectionstring = _configuration.GetSection("ConnectionString").Get<DatabaseEnvironment>();
 
-            // optionsBuilder.UseMySql(_database.GetConnectionString(connectionstring),
-            // new MySqlServerVersion(new Version(8, 0, 19)), 
-            // mySqlOptions => mySqlOptions.CharSetBehavior(CharSetBehavior.NeverAppend));
+            optionsBuilder.UseMySql(_database.GetConnectionString(connectionstring),
+            new MySqlServerVersion(new Version(8, 0, 19)));
 
-            optionsBuilder.UseSqlite(_database.GetConnectionString(connectionstring));
+            // optionsBuilder.UseSqlite(_database.GetConnectionString(connectionstring));
 
             // optionsBuilder.UseSqlServer(_database.GetConnectionString());
         }
