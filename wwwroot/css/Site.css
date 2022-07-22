@@ -45,8 +45,8 @@ body {
 
 #footer {
     bottom: 0;
-    height: 200px; /* height of the footer */
-    /* position: absolute; */
+    height: 200px;
+    position: absolute;
     width: 100%;
 }
 
