@@ -8,7 +8,7 @@
     <section class="row">
         <article class="col-sm-12 col-md-12 col-lg-12">
             <header>
-                <h1>@Model.BookmarkSettings.Title</h1>
+                <h1>@Model.Settings.Title</h1>
             </header>
         </article>
     </section>
@@ -24,15 +24,14 @@
                 @foreach (var label in Model.ListOfAllLabels)
                 {
                     <div>
-                        <a asp-page="/Label" asp-page-handler="@label.Name">@label.Name </a>
-                        <a asp-page="./Edit/EditLabel" asp-route-id="@label.LabelId">(Edit</a> <span> - </span>
-                        <a asp-page="./Delete/DeleteLabel" asp-route-id="@label.LabelId">Delete)</a>
+                        <a class="btn btn-dark" asp-page="/Label" asp-page-handler="@label.Name">@label.Name</a>
+                        <a class="btn btn-command-dark command-edit" asp-page="./Edit/EditLabel" asp-route-id="@label.LabelId">Edit</a>
+                        <a class="btn btn-command-dark command-delete" asp-page="./Delete/DeleteLabel" asp-route-id="@label.LabelId">Delete</a>
                     </div>
                 }
 
-                <hr>
+                <a class="btn btn-label-dark" asp-page="/Add/AddLabel">Add a Label</a>
 
-                <a class="btn btn-dark" asp-page="/Add/AddLabel">Add a Label</a>
             </div>
         </article>
         <article class="col-sm-12 col-md-12 col-lg-6">
@@ -41,14 +40,14 @@
                 <hr>
 
                 <!-- Display a limited amount of bookmarks in ascending order by date by default. -->
-                @foreach (var website in Model.ListOfAllWebsites.Take(Int32.Parse(Model.BookmarkSettings.ShowLimit)))
+                @foreach (var website in Model.ListOfAllWebsites.Take(Model.Settings.ShowLimit))
                 {
                     <div class="box-website-label">
                         <a asp-page="/Label" asp-page-handler="@website.Label.Name">@website.Label.Name</a>
                     </div>
                     <div class="box-website">
                         <h3>@website.Name</h3>
-                        <a href="@website.Location">@website.Location</a>
+                        <a href="@website.Location" target="_blank">@website.Location</a>
                         <p class="note">@website.Note</p>
                         <p class="date">@website.Date.ToString("MM/dd/yyyy")</p>
                     </div>
@@ -70,23 +69,24 @@
 
                 @if (@Model.SortOptionQueryString == "date")
                 {
-                    <a class="btn btn-dark" asp-page="/Index" asp-route-sort="date">Sorted By Date</a>
+                    <a class="btn btn-sorted" asp-page="/Index" asp-route-sort="date">Sorted By Date</a>
                     <a class="btn btn-dark" asp-page="/Index" asp-route-sort="website">Sort By Website</a>
                     <a class="btn btn-dark" asp-page="/Index" asp-route-sort="label">Sort By Label</a>
                 }
-                else if (@Model.SortOptionQueryString == "name")
+                else if (@Model.SortOptionQueryString == "website")
                 {
                     <a class="btn btn-dark" asp-page="/Index" asp-route-sort="date">Sort By Date</a>
-                    <a class="btn btn-dark" asp-page="/Index" asp-route-sort="website">Sorted By Website</a>
+                    <a class="btn btn-sorted" asp-page="/Index" asp-route-sort="website">Sorted By Website</a>
                     <a class="btn btn-dark" asp-page="/Index" asp-route-sort="label">Sort By Label</a>
                 }
                 else if (@Model.SortOptionQueryString == "label")
                 {
                     <a class="btn btn-dark" asp-page="/Index" asp-route-sort="date">Sort By Date</a>
                     <a class="btn btn-dark" asp-page="/Index" asp-route-sort="website">Sort By Website</a>
-                    <a class="btn btn-dark" asp-page="/Index" asp-route-sort="label">Sorted By Label</a>
+                    <a class="btn btn-sorted" asp-page="/Index" asp-route-sort="label">Sorted By Label</a>
                 }
-                else{
+                else
+                {
                     <a class="btn btn-dark" asp-page="/Index" asp-route-sort="date">Sort By Date</a>
                     <a class="btn btn-dark" asp-page="/Index" asp-route-sort="website">Sort By Website</a>
                     <a class="btn btn-dark" asp-page="/Index" asp-route-sort="label">Sort By Label</a>
@@ -102,7 +102,7 @@
                         <p>Total Bookmarks</p>
                     </li>
                     <li>
-                        <p class="count">@Model.BookmarkSettings.ShowLimit</p>
+                        <p class="count">@Model.Settings.ShowLimit</p>
                         <p>Bookmark Show Limit</p>
                     </li>
                 </ul>

@@ -7,7 +7,7 @@ namespace ResidentBookmark.Pages.Error.Staging
 
         private IConfiguration _configuration;
 
-        private IDatabaseConnection _database;
+        private IDatabaseService _database;
 
         public string RequestId { get; set; }
 
@@ -25,7 +25,7 @@ namespace ResidentBookmark.Pages.Error.Staging
         
         public bool ShowMySqlExeptionMessage => !string.IsNullOrEmpty(MySqlExeptionMessage);
 
-        public ErrorModel(IConfiguration configuration, IDatabaseConnection database)
+        public ErrorModel(IConfiguration configuration, IDatabaseService database)
         {
             _configuration = configuration;
             _database = database;
@@ -67,9 +67,24 @@ namespace ResidentBookmark.Pages.Error.Staging
                 ExceptionMessage = "Could not EDIT this item. Verify that the item still exist and try again.";
             }
 
-            if (exceptionHandlerPathFeature?.Error is ConfigurationNullReferenceException)
+            if (exceptionHandlerPathFeature?.Error is SettingFileNullReferenceException)
             {
-                ExceptionMessage = "Could not READ settings in configuration file. Verify the configuration and try again.";
+                ExceptionMessage = "Configuration file was not found!!";
+            }
+
+            if (exceptionHandlerPathFeature?.Error is TitleNullReferenceException)
+            {
+                ExceptionMessage = "Title setting set as null. Verify the settings and try again.";
+            }
+
+            if (exceptionHandlerPathFeature?.Error is ShowLimitNullReferenceException)
+            {
+                ExceptionMessage = "ShowLimit setting set as null or value set to 0. Verify the settings and try again.";
+            }
+
+            if (exceptionHandlerPathFeature?.Error is SortWebsiteNullReferenceException)
+            {
+                ExceptionMessage = "SortWebsite setting set as null or contain a typo. Verify the settings and try again.";
             }
         }
 
@@ -99,9 +114,24 @@ namespace ResidentBookmark.Pages.Error.Staging
                 ExceptionMessage = "Could not UPDATE this item. Verify that the item still exist and try again.";
             }
 
-            if (exceptionHandlerPathFeature?.Error is ConfigurationNullReferenceException)
+            if (exceptionHandlerPathFeature?.Error is SettingFileNullReferenceException)
             {
-                ExceptionMessage = "Could not READ settings in configuration file. Verify the configuration and try again.";
+                ExceptionMessage = "Configuration file was not found!!";
+            }
+
+            if (exceptionHandlerPathFeature?.Error is TitleNullReferenceException)
+            {
+                ExceptionMessage = "Title setting set as null. Verify the settings and try again.";
+            }
+
+            if (exceptionHandlerPathFeature?.Error is ShowLimitNullReferenceException)
+            {
+                ExceptionMessage = "ShowLimit setting set as null or value set to 0. Verify the settings and try again.";
+            }
+
+            if (exceptionHandlerPathFeature?.Error is SortWebsiteNullReferenceException)
+            {
+                ExceptionMessage = "SortWebsite setting set as null or contain a typo. Verify the settings and try again.";
             }
         }
     }

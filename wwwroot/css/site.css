@@ -14,7 +14,7 @@
 
 html, body {
     height: 100%;
-    margin: 0;
+    margin-bottom: 0;
     overflow-x: hidden;
     padding: 0;
 }
@@ -35,18 +35,18 @@ body {
 
 #wrapper {
     min-height: 100%;
-    position: relative;
 }
 
 #main {
-    padding: 0px;
+    overflow: auto;
     padding-bottom: 200px; /* height of the footer */
 }
 
 #footer {
-    bottom: 0;
+    clear: both;
     height: 200px;
-    position: absolute;
+    margin-top: -200px; /* negative value of footer height */
+    position: relative;
     width: 100%;
 }
 
@@ -77,24 +77,46 @@ body {
 
 /* -------------------------------------------- Form -------------------------------------------- */
 
-label, input, input.btn-dark, a.btn-dark {
+label, input, input.btn-dark, a.btn-dark, a.btn-command-dark, a.btn-label-dark, a.btn-sorted {
     font-weight: 800;
 }
 
-input.btn-dark, a.btn-dark {
+input.btn-dark, a.btn-dark, a.btn-label-dark {
     background-color: #111;
-    font-weight: 800;
+}
+
+input.btn-dark, a.btn-dark, a.btn-command-dark, a.btn-sorted {
     margin-top: 0.5em;
 }
 
-a.btn-dark {
-    background-color: #111;
+a.btn-label-dark {
+    margin-top: 1.5em;
+}
+
+a.btn-dark, a.btn-command-dark, a.btn-label-dark, a.btn-label-dark:hover {
     color: #f0f0f0;
 }
 
-a.btn-dark:hover {
+a.btn-dark:hover, a.btn-label-dark:hover {
     background-color: #2b2b2b;
-    color: #f0f0f0;
+}
+
+a.btn-command-dark {
+    background-color: #0093d0;
+    border: 1px solid #04cbf5;
+}
+
+a.btn-command-dark:hover {
+    background-color: #0092d0ce;
+}
+
+a.btn-sorted {
+    background-color: none;
+    border: 1px solid rgb(231, 231, 231);
+}
+
+.btn {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1), 0 4px 20px 0 rgba(0, 0, 0, 0.1);
 }
 
 /* -------------------------------------------- General -------------------------------------------- */
@@ -125,7 +147,7 @@ em {
     font-style: italic;
 }
 
-a, .scan-column-left p {
+a {
     color: #0093d0;
     font-size: 1.0em;
     font-weight: bold; 
@@ -164,9 +186,19 @@ strong {
     width: 100%;
 }
 
-.scan-column-left.txt-wd-100 a, .scan-column-left.txt-wd-100 p {
+.scan-column-left a {
     float: left;
     width: 100%;
+}
+
+.scan-column-left a.command-edit {
+    float: left;
+    width: 48%;
+}
+
+.scan-column-left a.command-delete {
+    float: right;
+    width: 48%;
 }
 
 .scan-column-main, .scan-column-right, .box-website, .box-website-label {
@@ -303,8 +335,7 @@ strong {
 }
 
 .error hr {
-    border-color: #276783;
-    border-style: solid;
+    border: 1px solid #276783;
 }
 
 /* -------------------------------------------- Navbar -------------------------------------------- */
@@ -421,7 +452,7 @@ strong {
     color: #747474;
 }
   
-.footer hr {
+.footer hr, .scan-column-left hr, .scan-column-main hr, .scan-column-right hr  {
     border: 1px solid #1d1d1d;
     width: 100%;
 }

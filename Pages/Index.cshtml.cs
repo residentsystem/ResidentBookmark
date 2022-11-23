@@ -6,7 +6,7 @@
 
         private readonly ResidentBookmarkContext _context;
 
-        private readonly IBookmarkService _bookmark;
+        private readonly ISettingService _settingservice;
 
         public List<Label> ListOfAllLabels { get; set; } = new List<Label>();
 
@@ -14,22 +14,25 @@
 
         public string SortOptionQueryString { get; set; }
 
-        public BookmarkSettings BookmarkSettings { get; set; }
+        public Setting Settings 
+        { 
+            get {
+                // Get list of options from default configuration file.
+                return _settingservice.GetBookmarkSettings();
+            } 
+        }
 
         private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger, ResidentBookmarkContext context, IBookmarkService bookmark)
+        public IndexModel(ILogger<IndexModel> logger, ResidentBookmarkContext context, ISettingService settingService)
         {
             _logger = logger;
             _context = context;
-            _bookmark = bookmark;
+            _settingservice = settingService;
         }
 
         public async Task OnGet()
         {
-            // Get list of options from default configuration file.
-            BookmarkSettings = _bookmark.GetBookmarkSettings();
-
             // Retrieve the list of all labels from the database.
             QueryService query = new QueryService();
             ListOfAllLabels = await query.RetrieveAllLabels(_context);
@@ -39,7 +42,7 @@
 
             // Sort all websites based on configuration option.
             SortWebsiteService sort = new SortWebsiteService();
-            ListOfAllWebsites = sort.SortWebsite(ListOfAllWebsites, BookmarkSettings.SortWebsite);
+            ListOfAllWebsites = sort.SortWebsite(ListOfAllWebsites, Settings.ToString());
 
             // Get sorting option from querystring.
             if (!String.IsNullOrEmpty(HttpContext.Request.Query["sort"]))

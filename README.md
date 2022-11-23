@@ -16,7 +16,7 @@ To start working on this project you need to download and install the following 
 ## Download and install
 
 ### Install .NET Core SDK
-1. Get the latest version of .NET Core on the <a href="https://dotnet.microsoft.com/download">dotnet</a> web site.
+1. Get the latest version of .NET Core on the <a href="https://dotnet.microsoft.com/download" target="_blank">dotnet</a> web site.
 
 2. When the installation is complete, open a new command prompt and run the following command:
 
@@ -36,7 +36,7 @@ To start working on this project you need to download and install the following 
 > Base Path:   C:\Program Files\dotnet\sdk\2.2.204\<br>
 
 ### Install Visual Studio Code
-1. Download the latest version of <a href="https://go.microsoft.com/fwlink/?LinkID=534107">Visual Studio Code</a> installer for Windows.
+1. Download the latest version of <a href="https://go.microsoft.com/fwlink/?LinkID=534107" target="_blank">Visual Studio Code</a> installer for Windows.
 
 2. Once it is downloaded, run the installer (VSCodeUserSetup-{version}.exe).
 
@@ -45,7 +45,7 @@ To start working on this project you need to download and install the following 
 ### Install Git
 > This procedure assumes you want to use a distributed version control system to contribute to this project. Git is not mandatory to develop or to simply run an ASP.NET Core web application. In this case, simply download the repository from Github using the ZIP file option.   
 
-1. Download the latest version of the <a href="https://git-scm.com/download/win">git</a> installer for Windows.
+1. Download the latest version of the <a href="https://git-scm.com/download/win" target="_blank">git</a> installer for Windows.
 
 2. Run the installer (Git-{version}-64-bit.exe).
 
@@ -59,61 +59,34 @@ To start working on this project you need to download and install the following 
 
 > git version 2.22.0.windows.1
 
-### Clone this project and class library from Github
+### Clone this project from Github
 
 Create a directory where you want the project and library to be cloned.
 
-> \\> mkdir C:\Solution<br>
-> \\> cd C:\Solution
+> \\> mkdir C:\ResidentBookmarkProject<br>
+> \\> cd C:\ResidentBookmarkProject
 
 #### Clone the project 
 
-1. Open your browser and navigate to Github. Access the main page of the <a href="https://github.com/residentsystem/ResidentBookmark">repository</a>.
+1. Open your browser and navigate to Github. Access the main page of the <a href="https://github.com/residentsystem/ResidentBookmark" target="_blank">repository</a>.
 
 2. Under the repository name, click Clone or download.
 
 3. In the Clone with HTTPs section, copy the clone URL for the repository.
 
-4. Go back to your terminal and make sure you're still in the solution root directory (C:\Solution).
+4. Go back to your terminal and make sure you're still in the project root directory (C:\ResidentBookmarkProject).
 
 5. Run git clone in your terminal and paste the URL from Step 3 to complete the command:
 
 > \\>git clone https://github.com/residentsystem/ResidentBookmark 
 
-6. Press Enter to the clone the project.
-
-#### Clone the class library
-
-1. Open your browser and navigate to Github. Access the main page of the <a href="https://github.com/residentsystem/ResidentSystemLibrary">repository</a>.
-
-2. Under the repository name, click Clone or download.
-
-3. In the Clone with HTTPs section, copy the clone URL for the repository.
-
-4. Go back to your terminal and make sure you're still in the solution root directory (C:\Solution).
-
-5. Run git clone in your terminal and paste the URL from Step 2 to complete the command:
-
-> \\>git clone https://github.com/residentsystem/ResidentSystemLibrary 
-
-6. Press Enter to clone the library.
-
-#### Create a solution
-
-1. From the root of the Solution folder, create a solution:
-
-> \\>dotnet new sln
-
-2. Run the following commands to add a reference to the project and the library to the solution:
-
-> \\>dotnet sln add ResidentBookmark/ResidentBookmark.csproj
-> \\>dotnet sln add ResidentSystemLibrary/ResidentSystemLibrary.csproj
+6. Press Enter to clone the project.
 
 ## Verify the installation
 
 1. Go into the project folder:
 
-> \\> cd .\ResidentBookmark
+> \\> cd C:\ResidentBookmarkProject\ResidentBookmark
 
 2. Run the application.
 
@@ -122,7 +95,7 @@ Create a directory where you want the project and library to be cloned.
 3. The command should print information about the hosting environment, url and port listening.
 
 > Hosting environment: Development
-> Content root path: C:\Solution\ResidentBookmark
+> Content root path: C:\ResidentBookmarkProject\ResidentBookmark
 > Now listening on: https://localhost:5001
 > Now listening on: http://localhost:5000
 > Application started. Press Ctrl+C to shut down.
@@ -137,7 +110,7 @@ The application is already configured to use SQLite and the database file alread
 
 1. Go to the project folder.
 
-> \\> cd C:\Solution\ResidentBookmark
+> \\> cd C:\ResidentBookmarkProject\ResidentBookmark
 
 2. Open Data\ResidentBookmarkContext.cs and uncomment the optionsBuilder that use MySQL. Remove the double "/" in front of each lines so it look like this:
 
@@ -166,17 +139,17 @@ Note: Use connection details related to your environment.
 
 Important: You will need to have a MySQL server up and running before creating the database. Please find more information about installing MySQL Server on your system.
 
-- <a href="https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/windows-installation.html"> Install MySQL on Windows</a>.
+- <a href="https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/windows-installation.html" target="_blank"> Install MySQL on Windows</a>.
 
-- <a href="https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/linux-installation.html"> Install MySQL on Linux</a>.
+- <a href="https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/linux-installation.html" target="_blank"> Install MySQL on Linux</a>.
 
 ### Host and deploy ASP.NET Core
 
-When done publishing the app, you need to deploy the published files to a folder on the hosting server. Then you need to set up a process manager that starts the app when requests arrive and restarts the app after it crashes or the server reboots. For configuration of a reverse proxy, set up a reverse proxy to forward requests to the app. For more information, read on how to <a href="https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2">host ASP.NET Core on Windows with IIS</a>.
+When done publishing the app, you need to deploy the published files to a folder on the hosting server. Then you need to set up a process manager that starts the app when requests arrive and restarts the app after it crashes or the server reboots. For configuration of a reverse proxy, set up a reverse proxy to forward requests to the app. For more information, read on how to <a href="https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2" target="_blank">host ASP.NET Core on Windows with IIS</a>.
 
 ## Built With
 * Visual Studio Code - Code editor
-* .NET Core SDK 5.0 - Open-source development platform
+* .NET Core SDK 7.0.100 - Open-source development platform
 
 ## Contributing
 Please read CONTRIBUTING for details on our code of conduct, and the process for submitting pull requests to us.

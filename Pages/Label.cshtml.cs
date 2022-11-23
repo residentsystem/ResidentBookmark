@@ -46,7 +46,7 @@ namespace ResidentBookmark.Pages
 
             if (NumberOfWebsites == 0)
             {
-                LabelEmptyMessage = "This label is empty.";
+                LabelEmptyMessage = "This section is empty.";
             }
             else
             {

@@ -16,18 +16,22 @@
 <div class="container">
     <section class="row">
         <article class="col-sm-12 col-md-12 col-lg-3">
-            <div class="scan-column-left txt-wd-100">
+            <div class="scan-column-left">
                 <h2>Label</h2>
+                <hr>
+
                 @foreach (var label in Model.ListOfLabelsWebsiteCount)
                 {
-                    <p>@label.Key (@label.Value)</p>
+                    <h3>@label.Key (@label.Value)</h3>
                     <p>@Model.LabelDescription</p>
                 }
+
             </div>
         </article>
         <article class="col-sm-12 col-md-12 col-lg-6">
             <div class="scan-column-main">
                 <h2>Bookmarks (@Model.ListOfWebsitesFromLabels.Count())</h2>
+                <hr>
 
                 @if (Model.ShowLabelEmptyMessage)
                 {
@@ -46,7 +50,7 @@
                     {
                         <div class="box-website">
                             <h3>@website.Name</h3>
-                            <a href="@website.Location">@website.Location</a>
+                            <a href="@website.Location" target="_blank">@website.Location</a>
                             <p class="note">@website.Note</p>
                             <p class="date">@website.Date.ToString("MM/dd/yyyy")</p>
                         </div>
@@ -62,6 +66,8 @@
         <article class="col-sm-12 col-md-12 col-lg-3">
             <div class="scan-column-right">
                 <h2>Menu</h2>
+                <hr>
+
                 <a class="btn btn-dark" asp-page="/Index">Home</a>
                 <a class="btn btn-dark" asp-page="/Add/AddWebsite" asp-page-handler="@Model.QueryString">Add a Website</a>
 
@@ -69,13 +75,13 @@
                 {
                     @if (@Model.SortOptionQueryString == "date")
                     {
-                        <a class="btn btn-dark" asp-page="/Label" asp-page-handler="@Model.QueryString" asp-route-sort="date">Sorted By Date</a>
+                        <a class="btn btn-sorted" asp-page="/Label" asp-page-handler="@Model.QueryString" asp-route-sort="date">Sorted By Date</a>
                         <a class="btn btn-dark" asp-page="/Label" asp-page-handler="@Model.QueryString" asp-route-sort="website">Sort By Website</a>
                     }
                     else if (@Model.SortOptionQueryString == "website")
                     {
                         <a class="btn btn-dark" asp-page="/Label" asp-page-handler="@Model.QueryString" asp-route-sort="date">Sort By Date</a>
-                        <a class="btn btn-dark" asp-page="/Label" asp-page-handler="@Model.QueryString" asp-route-sort="website">Sorted By Website</a>
+                        <a class="btn btn-sorted" asp-page="/Label" asp-page-handler="@Model.QueryString" asp-route-sort="website">Sorted By Website</a>
                     }
                     else 
                     {

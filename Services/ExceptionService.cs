@@ -48,9 +48,33 @@ namespace ResidentBookmark.Services
         }
     }
 
-    public class ConfigurationNullReferenceException : NullReferenceException
+    public class SettingFileNullReferenceException : NullReferenceException
     {
-        public ConfigurationNullReferenceException (string message = "Could not READ settings in configuration file. Verify the configuration and try again.") : base (message)
+        public SettingFileNullReferenceException (string message = "Configuration file was not found!!") : base (message)
+        {
+
+        }
+    }
+
+    public class TitleNullReferenceException : NullReferenceException
+    {
+        public TitleNullReferenceException (string message = "Title setting set as null. Verify the settings and try again.") : base (message)
+        {
+
+        }
+    }
+
+    public class ShowLimitNullReferenceException : NullReferenceException
+    {
+        public ShowLimitNullReferenceException (string message = "ShowLimit setting set as null or value set to 0. Verify the settings and try again.") : base (message)
+        {
+
+        }
+    }
+
+    public class SortWebsiteNullReferenceException : NullReferenceException
+    {
+        public SortWebsiteNullReferenceException (string message = "SortWebsite setting set as null or contain a typo. Verify the settings and try again.") : base (message)
         {
 
         }

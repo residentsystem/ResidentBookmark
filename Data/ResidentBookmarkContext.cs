@@ -4,9 +4,9 @@ namespace ResidentBookmark.Data
     {
         private IConfiguration _configuration;
         
-        private IDatabaseConnection _database;
+        private IDatabaseService _database;
 
-        public ResidentBookmarkContext(IConfiguration configuration, IDatabaseConnection database)
+        public ResidentBookmarkContext(IConfiguration configuration, IDatabaseService database)
         {
             _configuration = configuration;
             _database = database;

@@ -1,189 +1,192 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <meta name="generator" content="Microsoft Visual Studio Code" />
-    <meta name="copyright" content="Copyright Resident Bookmark" />
-    <meta name="author" content="Eric Lacroix" />
-    <meta name="robots" content="INDEX,FOLLOW" />
-    @RenderSection("metatags", required: false)
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+        <meta name="generator" content="Microsoft Visual Studio Code" />
+        <meta name="copyright" content="Copyright Resident Bookmark" />
+        <meta name="author" content="Eric Lacroix" />
+        <meta name="robots" content="INDEX,FOLLOW" />
+        @RenderSection("metatags", required: false)
 
-    <link rel="icon" href="~/images/icon/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="~/images/icon/favicon.ico" type="image/x-icon" />
 
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/reset.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/mobile.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/reset.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/mobile.css" />
 
-    <script src="~/js/html5shiv.js"></script>
+        <script src="~/js/html5shiv.js"></script>
 
-    <title>@Model.PageTitle</title>
-</head>
-<body>
+        <title>@Model.PageTitle</title>
+    </head>
+    <body>
 
-<div id="wrapper">
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="~/" title="Home"><img id="logo" src="~/images/logo/rslogo.png" alt="Resident System logo" height="60" width="220" /></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <div id="wrapper">
+            <header>
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="~/" title="Home"><img id="logo" src="~/images/logo/rslogo.png" alt="Resident System logo" height="60" width="220" /></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="~/">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.residentsystem.net#about" title="About">About</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Article
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="https://www.residentsystem.net#article" title="Articles">The Knowledge</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="https://www.residentsystem.net/articles/getstartednetcore" target="_blank" title="Get Started with .NET Core">Get Started with .NET Core</a>
-                            <a class="dropdown-item" href="https://www.residentsystem.net/articles/aspnetcore" target="_blank" title="What is ASP.NET Core">What is ASP.NET Core</a>
-                            <a class="dropdown-item" href="https://www.residentsystem.net/articles/dependencyinjection" target="_blank" title="Dependency Injection">Dependency Injection</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.residentsystem.net#project" title="Projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.residentsystem.net#contact" title="Contact">Contact</a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0" action="https://www.google.com/search" method="get" target="_blank">
-                    <input class="form-control mr-sm-2" type="text" name="q" size="20" value="" aria-label="Google Search">
-                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Google Search</button>
-                </form>
-            </div>
-        </nav>
-    </header>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.residentsystem.net#about" title="About">About</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Article
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="https://www.residentsystem.net#article" title="Articles">The Knowledge</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="https://www.residentsystem.net/articles/getstartednetcore" target="_blank" title="Get Started with .NET Core">Get Started with .NET Core</a>
+                                    <a class="dropdown-item" href="https://www.residentsystem.net/articles/aspnetcore" target="_blank" title="What is ASP.NET Core">What is ASP.NET Core</a>
+                                    <a class="dropdown-item" href="https://www.residentsystem.net/articles/dependencyinjection" target="_blank" title="Dependency Injection">Dependency Injection</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.residentsystem.net#project" title="Projects">Projects</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.residentsystem.net#contact" title="Contact">Contact</a>
+                            </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0" action="https://www.google.com/search" method="get" target="_blank">
+                            <input class="form-control mr-sm-2" type="text" name="q" size="20" value="" aria-label="Google Search">
+                            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Google Search</button>
+                        </form>
+                    </div>
+                </nav>
+            </header>
     
-    <main role="main">
-        @RenderBody()
-    </main>
+            <main id="main" role="main">
+                @RenderBody()
+            </main>
+        </div>
 
-    <footer id="footer">
-        <div class="container-fluid footer">
-            <div class="row">
-
-                <div class="container">
-                    <hr />
+        <div id="footer">
+            <footer>
+                <div class="container-fluid footer">
                     <div class="row">
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
-                            <p class="title">ResidentBookmark</p>
-                            <p>Knowledge is power and education is the premise of progress, in every community, in every business.</p>
+
+                        <div class="container">
+                            <hr />
+                            <div class="row">
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                                    <p class="title">ResidentBookmark</p>
+                                    <p>Knowledge is power and education is the premise of progress, in every community, in every business.</p>
                             
-                            <div class="footer-social"><a href="https://www.facebook.com/lacroixeric" target="_blank" title="Facebook profile"><img src="~/images/icon/facebook.png" alt="Facebook icon" height="32" width="32" /></a></div>
-                            <div class="footer-social"><a href="https://twitter.com/seesharpman" target="_blank" title="Twitter profile"><img src="~/images/icon/twitter.png" alt="Twitter icon" height="32" width="32" /></a></div>
-                            <div class="footer-social"><a href="https://github.com/residentsystem" target="_blank" title="GitHub repositories"><img src="~/images/icon/github-light.png" alt="GitHub icon" height="32" width="32" /></a></div>
-                            <div class="footer-social"><a href="https://www.linkedin.com/in/ericlacroix01" target="_blank" title="Linkedin profile"><img src="~/images/icon/linkedin.png" alt="LinkedIn icon" height="32" width="32" /></a></div>
-                            <div class="footer-social"><a href="https://app.pluralsight.com/profile/gresident" target="_blank" title="Pluralsight profile"><img src="~/images/icon/pluralsight.png" alt="Pluralsight icon" height="32" width="32" /></a></div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
-                            <div class="footer-menu">
-                                <ul>
-                                    <li><a class="blue" href="~/">Home</a></li>
-                                    <li><a href="https://www.residentsystem.net#html" title="Build with HTML">Build with HTML</a></li>
-                                    <li><a href="https://www.residentsystem.net#css" title="Style with CSS">Style with CSS</a></li>
-                                    <li><a href="https://www.residentsystem.net#netcore" title="Develop with .NET Core">Develop with .NET Core</a></li>
-                                    <li><a href="https://www.residentsystem.net#mysql" title="Databases with MySQL">Databases with MySQL</a></li>
-                                    <li><a href="https://www.residentsystem.net#csharp" title="Databases with MySQL">Programming using C#</a></li>
-                                    <li><a href="https://www.residentsystem.net#cloud" title="Hosting in Azure">Hosting in Azure</a></li>
-                                </ul>
+                                    <div class="footer-social"><a href="https://www.facebook.com/lacroixeric" target="_blank" title="Facebook profile"><img src="~/images/icon/facebook.png" alt="Facebook icon" height="32" width="32" /></a></div>
+                                    <div class="footer-social"><a href="https://twitter.com/seesharpman" target="_blank" title="Twitter profile"><img src="~/images/icon/twitter.png" alt="Twitter icon" height="32" width="32" /></a></div>
+                                    <div class="footer-social"><a href="https://github.com/residentsystem" target="_blank" title="GitHub repositories"><img src="~/images/icon/github-light.png" alt="GitHub icon" height="32" width="32" /></a></div>
+                                    <div class="footer-social"><a href="https://www.linkedin.com/in/ericlacroix01" target="_blank" title="Linkedin profile"><img src="~/images/icon/linkedin.png" alt="LinkedIn icon" height="32" width="32" /></a></div>
+                                    <div class="footer-social"><a href="https://app.pluralsight.com/profile/gresident" target="_blank" title="Pluralsight profile"><img src="~/images/icon/pluralsight.png" alt="Pluralsight icon" height="32" width="32" /></a></div>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                                    <div class="footer-menu">
+                                        <ul>
+                                            <li><a class="blue" href="~/">Home</a></li>
+                                            <li><a href="https://www.residentsystem.net#html" target="_blank" title="Build with HTML">Build with HTML</a></li>
+                                            <li><a href="https://www.residentsystem.net#css" target="_blank" title="Style with CSS">Style with CSS</a></li>
+                                            <li><a href="https://www.residentsystem.net#netcore" target="_blank" title="Develop with .NET Core">Develop with .NET Core</a></li>
+                                            <li><a href="https://www.residentsystem.net#mysql" target="_blank" title="Databases with MySQL">Databases with MySQL</a></li>
+                                            <li><a href="https://www.residentsystem.net#csharp" target="_blank" title="Databases with MySQL">Programming using C#</a></li>
+                                            <li><a href="https://www.residentsystem.net#cloud" target="_blank" title="Hosting in Azure">Hosting in Azure</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                                    <div class="footer-menu">
+                                        <ul>
+                                            <li><a href="https://www.residentsystem.net#about" target="_blank" title="About Me">About Me</a></li>
+                                            <li><a href="https://www.residentsystem.net#aspnetcore" target="_blank" title="Discovering ASP.NET Core">Discovering ASP.NET Core</a></li>
+                                            <li><a href="https://www.residentsystem.net#project" target="_blank" title="Projects">Projects</a></li>
+                                            <li><a href="https://www.residentsystem.net#contact" target="_blank" title="Contact">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                                    <div class="footer-menu">
+                                        <ul>
+                                            <li><a href="https://www.residentsystem.net#article" target="_blank" title="Articles">Articles</a></li>
+                                            <li><a href="https://www.residentsystem.net/articles/getstartednetcore" target="_blank" title="Get Started with .NET Core">Get Started with .NET Core</a></li>
+                                            <li><a href="https://www.residentsystem.net/articles/aspnetcore" target="_blank" title="What is ASP.NET Core">What is ASP.NET Core</a></li>
+                                            <li><a href="https://www.residentsystem.net/articles/dependencyinjection" target="_blank" title="Dependency Injection">Dependency Injection</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
+                            <hr />
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
-                            <div class="footer-menu">
-                                <ul>
-                                    <li><a href="https://www.residentsystem.net#about" title="About Me">About Me</a></li>
-                                    <li><a href="https://www.residentsystem.net#aspnetcore" title="Discovering ASP.NET Core">Discovering ASP.NET Core</a></li>
-                                    <li><a href="https://www.residentsystem.net#project" title="Projects">Projects</a></li>
-                                    <li><a href="https://www.residentsystem.net#contact" title="Contact">Contact</a></li>
-                                </ul>
+
+                        <div class="container">
+                            <hr />
+                            <div class="row">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                    <div class="footer-submenu">
+                                        <ul>
+                                            <li><p>Explore <a href="https://docs.microsoft.com/en-us/learn/dotnet" target="_blank" title="Microsoft Learn For .NET">Microsoft Learn For .NET</a> and discover a free training 
+                                            platform that provides interactive courses for .NET, C# and more.</p></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                    <div class="footer-submenu">
+                                        <ul>
+                                            <li><p><a href="https://channel9.msdn.com/Shows/On-NET" target="_blank" title="On .NET">On .NET</a> is a show hosted on Channel 9 that dive into the .NET ecosystem to help 
+                                            you build better applications.</p></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                    <div class="footer-submenu">
+                                        <ul>
+                                            <li><p><a href="https://dotnetfoundation.org" target="_blank" title=".NET Foundation">.NET Foundation</a> provides several services to support the open source projects in our community 
+                                            and help them grow.</p></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
-                            <div class="footer-menu">
-                                <ul>
-                                    <li><a href="https://www.residentsystem.net#article" title="Articles">Articles</a></li>
-                                    <li><a href="https://www.residentsystem.net/articles/getstartednetcore" target="_blank" title="Get Started with .NET Core">Get Started with .NET Core</a></li>
-                                    <li><a href="https://www.residentsystem.net/articles/aspnetcore" target="_blank" title="What is ASP.NET Core">What is ASP.NET Core</a></li>
-                                    <li><a href="https://www.residentsystem.net/articles/dependencyinjection" target="_blank" title="Dependency Injection">Dependency Injection</a></li>
-                                </ul>
-                            </div>
+                            <hr />
                         </div>
                     </div>
-                    <hr />
                 </div>
 
-                <div class="container">
-                    <hr />
+                <div class="container-fluid footer-logo">
                     <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                            <div class="footer-submenu">
-                                <ul>
-                                    <li><p>Explore <a href="https://docs.microsoft.com/en-us/learn/dotnet" target="_blank" title="Microsoft Learn For .NET">Microsoft Learn For .NET</a> and discover a free training 
-                                    platform that provides interactive courses for .NET, C# and more.</p></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                            <div class="footer-submenu">
-                                <ul>
-                                    <li><p><a href="https://channel9.msdn.com/Shows/On-NET" target="_blank" title="On .NET">On .NET</a> is a show hosted on Channel 9 that dive into the .NET ecosystem to help 
-                                    you build better applications.</p></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                            <div class="footer-submenu">
-                                <ul>
-                                    <li><p><a href="https://dotnetfoundation.org" target="_blank" title=".NET Foundation">.NET Foundation</a> provides several services to support the open source projects in our community 
-                                    and help them grow.</p></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <hr />
-                </div>
-            </div>
-        </div>
 
-        <div class="container-fluid footer-logo">
-            <div class="row">
-
-                <div class="container">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                        <div class="footer-logo-menu">
-                            <ul>
-                                <li class="footer-logo-image"><a href="https://www.residentsystem.com" target="_blank" title="Resident System Logo"><img id="logofooter" src="~/images/logo/rslogofooter.png" alt="Resident System logo" height="60" width="220" /></a></li>
-                                <li class="footer-logo-link"><a href="https://www.residentsystem.com/legal" target="_blank" title="Legal">Legal<span class="sr-only">(current)</span></a></li>
-                                <li class="footer-logo-link"><a href="https://www.residentsystem.com/privacy" target="_blank" title="Privacy Policy">Privacy Policy</a></li>
-                                <li class="footer-logo-link"><a href="https://www.residentsystem.com/term" target="_blank" title="Terms of Use">Terms of Use</a></li>
-                            </ul>
+                        <div class="container">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                <div class="footer-logo-menu">
+                                    <ul>
+                                        <li class="footer-logo-image"><a href="https://www.residentsystem.com" target="_blank" title="Resident System Logo"><img id="logofooter" src="~/images/logo/rslogofooter.png" alt="Resident System logo" height="60" width="220" /></a></li>
+                                        <li class="footer-logo-link"><a href="https://www.residentsystem.com/legal" target="_blank" title="Legal">Legal<span class="sr-only">(current)</span></a></li>
+                                        <li class="footer-logo-link"><a href="https://www.residentsystem.com/privacy" target="_blank" title="Privacy Policy">Privacy Policy</a></li>
+                                        <li class="footer-logo-link"><a href="https://www.residentsystem.com/term" target="_blank" title="Terms of Use">Terms of Use</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
-
-            </div>
+            </footer>
         </div>
-    </footer>
-</div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/html5shiv.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/logo.js"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/html5shiv.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/logo.js"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
+        @await RenderSectionAsync("Scripts", required: false)
+
+    </body>
 </html>
