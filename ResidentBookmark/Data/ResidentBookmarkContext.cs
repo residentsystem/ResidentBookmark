@@ -20,14 +20,9 @@ namespace ResidentBookmark.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 
             // Bind the content of default configuration file "bookmarksettings.json" to an instance of DatabaseSettings. 
-            DatabaseEnvironment connectionstring = _configuration.GetSection("ConnectionString").Get<DatabaseEnvironment>();
+            //DatabaseEnvironment connectionstring = _configuration.GetSection("ConnectionString").Get<DatabaseEnvironment>();
 
-            optionsBuilder.UseMySql(_database.GetConnectionString(connectionstring),
-            new MySqlServerVersion(new Version(8, 0, 19)));
-
-            // optionsBuilder.UseSqlite(_database.GetConnectionString(connectionstring));
-
-            // optionsBuilder.UseSqlServer(_database.GetConnectionString());
+            optionsBuilder.UseMySql(_database.GetConnectionString(), new MySqlServerVersion(new Version(8, 0, 19)));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

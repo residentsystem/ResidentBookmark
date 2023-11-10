@@ -63,8 +63,8 @@ To start working on this project you need to download and install the following 
 
 Create a directory where you want the project and library to be cloned.
 
-> \\> mkdir C:\ResidentBookmarkProject<br>
-> \\> cd C:\ResidentBookmarkProject
+> \\> mkdir C:\ResidentSystemProject<br>
+> \\> cd C:\ResidentSystemProject
 
 #### Clone the project 
 
@@ -74,11 +74,11 @@ Create a directory where you want the project and library to be cloned.
 
 3. In the Clone with HTTPs section, copy the clone URL for the repository.
 
-4. Go back to your terminal and make sure you're still in the project root directory (C:\ResidentBookmarkProject).
+4. Go back to your terminal and make sure you're still in the project root directory (C:\ResidentSystemApp).
 
 5. Run git clone in your terminal and paste the URL from Step 3 to complete the command:
 
-> \\>git clone https://github.com/residentsystem/ResidentBookmark 
+> \\>git clone https://github.com/residentsystem/ResidentSystemApp.git
 
 6. Press Enter to clone the project.
 
@@ -86,7 +86,7 @@ Create a directory where you want the project and library to be cloned.
 
 1. Go into the project folder:
 
-> \\> cd C:\ResidentBookmarkProject\ResidentBookmark
+> \\> cd C:\ResidentSystemProject\ResidentSystemApp\ResidentBookmark
 
 2. Run the application.
 
@@ -95,9 +95,8 @@ Create a directory where you want the project and library to be cloned.
 3. The command should print information about the hosting environment, url and port listening.
 
 > Hosting environment: Development
-> Content root path: C:\ResidentBookmarkProject\ResidentBookmark
-> Now listening on: https://localhost:5001
-> Now listening on: http://localhost:5000
+> Content root path: C:\ResidentSystemProject\ResidentSystemApp\ResidentBookmark
+> Now listening on: http://localhost:5001
 > Application started. Press Ctrl+C to shut down.
 
 4. Open your browser and navigate to http://localhost:5000.
@@ -110,29 +109,29 @@ The application is already configured to use SQLite and the database file alread
 
 1. Go to the project folder.
 
-> \\> cd C:\ResidentBookmarkProject\ResidentBookmark
+> \\> cd C:\ResidentSystem\ResidentSystemApp\ResidentBookmark
 
 2. Open Data\ResidentBookmarkContext.cs and uncomment the optionsBuilder that use MySQL. Remove the double "/" in front of each lines so it look like this:
 
-> optionsBuilder.UseMySql(_database.GetConnectionString(connectionstring),
+> optionsBuilder.UseMySql(_database.GetConnectionString(),
 > new MySqlServerVersion(new Version(8, 0, 19)), 
 > mySqlOptions => mySqlOptions.CharSetBehavior(CharSetBehavior.NeverAppend));
 
-3. Next comment out the optionsBuilder section so that it will stop using SQLite. Add double "/" in front of the line so it look like this and save the file:
-
-> // optionsBuilder.UseSqlite(_database.GetConnectionString(connectionstring));
-
-4. Modify Properties\launchSettings.json with the environment you wish to use. Development is already used by SQLite so lets use staging. 
+3. Modify Properties\launchSettings.json with the environment you wish to use. Development is already used by SQLite so lets use staging. 
 
 > "ASPNETCORE_ENVIRONMENT": "Staging"
 
-5. Open bookmarksettings.json and update the ConnectionString section for Staging:
+4. Assign the connection string to the environment variable named CONNSTR_BOOKMARK.
 
-> "Staging": "server=localhost;port=3306;database=database;user=username;password=password"
+Windows Command Prompt:
+> set CONNSTR_BOOKMARK="server=localhost;port=3306;database=database;user=username;password=password"
+
+Linux Bash:
+> export CONNSTR_BOOKMARK="server=localhost;port=3306;database=database;user=username;password=password"
 
 Note: Use connection details related to your environment.
 
-6. Create the database.
+5. Create the database.
 
 > \\>dotnet ef migrations add CreateStagingDatabase -o Migrations\Staging
 > \\>dotnet ef database update

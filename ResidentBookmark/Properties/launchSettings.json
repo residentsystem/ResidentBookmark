@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "ResidentBookmark-Development": {
+    "Bookmark-Development": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ResidentBookmark-Staging": {
+    "Bookmark-Staging": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
@@ -26,7 +26,7 @@
         "ASPNETCORE_ENVIRONMENT": "Staging"
       }
     },
-    "ResidentBookmark-Production": {
+    "Bookmark-Production": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

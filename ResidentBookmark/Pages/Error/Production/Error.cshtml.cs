@@ -34,11 +34,11 @@ namespace ResidentBookmark.Pages.Error.Production
         public void OnGet()
         {
             // Bind the content of default configuration file "appsettings.json" to an instance of DatabaseSettings. 
-            DatabaseEnvironment connectionstring = _configuration.GetSection("ConnectionString").Get<DatabaseEnvironment>();
+            //DatabaseEnvironment connectionstring = _configuration.GetSection("ConnectionString").Get<DatabaseEnvironment>();
 
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
 
-            MySqlExeptionMessage = _database.MySqlConnectionStatus(_database.GetConnectionString(connectionstring));
+            MySqlExeptionMessage = _database.MySqlConnectionStatus(_database.GetConnectionString());
 
             var exceptionHandlerPathFeature = HttpContext.Features.Get<IExceptionHandlerPathFeature>();
 
@@ -91,11 +91,11 @@ namespace ResidentBookmark.Pages.Error.Production
         public void OnPost()
         {
             // Bind the content of default configuration file "appsettings.json" to an instance of DatabaseSettings. 
-            DatabaseEnvironment connectionstring = _configuration.GetSection("ConnectionString").Get<DatabaseEnvironment>();
+            //DatabaseEnvironment connectionstring = _configuration.GetSection("ConnectionString").Get<DatabaseEnvironment>();
 
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
 
-            MySqlExeptionMessage = _database.MySqlConnectionStatus(_database.GetConnectionString(connectionstring));
+            MySqlExeptionMessage = _database.MySqlConnectionStatus(_database.GetConnectionString());
 
             var exceptionHandlerPathFeature = HttpContext.Features.Get<IExceptionHandlerPathFeature>(); 
 

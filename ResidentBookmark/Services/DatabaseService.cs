@@ -2,7 +2,7 @@ namespace ResidentBookmark.Services
 {
     public class DatabaseService : IDatabaseService
     {
-        private IConfiguration _configuration;
+        //private IConfiguration _configuration;
 
         private IWebHostEnvironment _environment;
 
@@ -12,11 +12,26 @@ namespace ResidentBookmark.Services
 
         public DatabaseService(IConfiguration configuration, IWebHostEnvironment environment)
         {
-            _configuration = configuration;
+            //_configuration = configuration;
             _environment = environment;
         }
 
-        // Retrieve connection string to be used based on current environment
+        // Retrieve connection string from environment variable
+
+        public string GetConnectionString()
+        {
+            if (_environment.IsDevelopment()) {
+                return Environment.GetEnvironmentVariable("CONNSTR_BOOKMARK_DEV");
+            }
+            else if (_environment.IsStaging()) {
+                return Environment.GetEnvironmentVariable("CONNSTR_BOOKMARK_STG");
+            }
+            else {
+                return Environment.GetEnvironmentVariable("CONNSTR_BOOKMARK_PRD");
+            }
+        }
+
+        // Retrieve connection string from configuration file to be used based on current environment
 
         public string GetConnectionString(DatabaseEnvironment connectionstring)
         {

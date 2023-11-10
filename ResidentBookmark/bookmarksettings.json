@@ -1,10 +1,4 @@
 {
-  "ConnectionString": {
-    "Development": "server=rs-wsdv-z690-01.residentsystem.home;port=3306;database=bookmark;user=rsbookmarkdev01;password=MySQL@1-rule;initial catalog=Bookmark",
-    "Staging": "server=<server>;port=3306;database=<database>;user=<username>;password=<password>",
-    "Production": "server=<server>;port=3306;database=<database>;user=<username>;password=<password>"
-  },
-
   "BookmarkSettings": {
     "Title": "Resident Bookmarks",
     "ShowLimit": "6",
