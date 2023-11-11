@@ -1,6 +1,6 @@
 namespace ResidentBookmark.Data
 {
-    public class ResidentBookmarkContext : DbContext
+    public partial class ResidentBookmarkContext : DbContext
     {
         private IConfiguration _configuration;
         
@@ -13,9 +13,9 @@ namespace ResidentBookmark.Data
         }
 
         // The context has two DbSet properties. The DbSet classes maps to a table in the database.
-        public DbSet<Website> Websites { get; set; }
+        public virtual DbSet<Website> Websites { get; set; }
 
-        public DbSet<Label> Labels { get; set; }
+        public virtual DbSet<Label> Labels { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 
@@ -27,26 +27,47 @@ namespace ResidentBookmark.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Website>()
-            .HasOne<Label>(l => l.Label)
-            .WithMany(w => w.Websites)
-            .HasForeignKey(l => l.LabelId)
-            .IsRequired(true);
+            modelBuilder
+                .UseCollation("utf8mb4_0900_ai_ci")
+                .HasCharSet("utf8mb4");
 
-            modelBuilder.Entity<Website>().HasIndex(l => l.LabelId).HasDatabaseName("Website_LabelId");
-
-            modelBuilder.Entity<Website>(website =>
+            modelBuilder.Entity<Label>(entity =>
             {
-                website.Property(w => w.Name).HasColumnType("varchar(50)").IsRequired(true);
-                website.Property(w => w.Location).HasColumnType("varchar(200)").IsRequired(true);
-                website.Property(w => w.Note).HasColumnType("varchar(60)").IsRequired(false);
+                entity.HasKey(e => e.LabelId).HasName("PRIMARY");
+
+                entity.ToTable("labels");
+
+                entity.Property(e => e.Description).HasMaxLength(60);
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<Label>(label =>
+            modelBuilder.Entity<Website>(entity =>
             {
-                label.Property(l => l.Name).HasColumnType("varchar(50)").IsRequired(true);
-                label.Property(l => l.Description).HasColumnType("varchar(60)").IsRequired(false);
+                entity.HasKey(e => e.WebsiteId).HasName("PRIMARY");
+
+                entity.ToTable("websites");
+
+                entity.HasIndex(e => e.LabelId, "Website_LabelId");
+
+                entity.Property(e => e.Date).HasMaxLength(6);
+                entity.Property(e => e.Location)
+                    .IsRequired()
+                    .HasMaxLength(200);
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50);
+                entity.Property(e => e.Note).HasMaxLength(60);
+
+                entity.HasOne(d => d.Label).WithMany(p => p.Websites)
+                    .HasForeignKey(d => d.LabelId)
+                    .HasConstraintName("FK_Websites_Labels_LabelId");
             });
+
+            OnModelCreatingPartial(modelBuilder);
         }
+
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

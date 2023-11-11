@@ -1,6 +1,6 @@
 namespace ResidentBookmark.Models
 {
-    public class Website
+    public partial class Website
     {
         public int WebsiteId { get; set; }
 
@@ -19,6 +19,6 @@ namespace ResidentBookmark.Models
         public int LabelId { get; set; }
 
         //Navigational Property
-        public Label Label { get; set; }
+        public virtual Label Label { get; set; }
     }
 }
