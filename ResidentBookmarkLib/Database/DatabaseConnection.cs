@@ -1,6 +1,6 @@
-namespace ResidentBookmark.Services
+namespace ResidentBookmarkLib.Database
 {
-    public class DatabaseService : IDatabaseService
+    public class DatabaseConnection : IDatabaseConnection
     {
         //private IConfiguration _configuration;
 
@@ -10,7 +10,7 @@ namespace ResidentBookmark.Services
         
         public string Message { get; set; }
 
-        public DatabaseService(IConfiguration configuration, IWebHostEnvironment environment)
+        public DatabaseConnection(IConfiguration configuration, IWebHostEnvironment environment)
         {
             //_configuration = configuration;
             _environment = environment;

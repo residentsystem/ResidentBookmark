@@ -1,6 +1,6 @@
-namespace ResidentBookmark.Interfaces
+namespace ResidentBookmarkLib.Database
 {
-    public interface IDatabaseService
+    public interface IDatabaseConnection
     {
         string GetConnectionString();
         

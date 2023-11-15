@@ -12,7 +12,7 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<ResidentBookmarkContext>();
 
-builder.Services.AddSingleton<IDatabaseService, DatabaseService>();
+builder.Services.AddSingleton<IDatabaseConnection, DatabaseConnection>();
 builder.Services.AddSingleton<ISettingService, SettingService>();
 
 var app = builder.Build();

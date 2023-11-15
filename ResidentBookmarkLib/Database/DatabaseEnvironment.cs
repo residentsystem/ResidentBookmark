@@ -1,4 +1,4 @@
-namespace ResidentBookmark.Models
+namespace ResidentBookmarkLib.Database
 {
     public class DatabaseEnvironment
     {

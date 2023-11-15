@@ -7,7 +7,7 @@ namespace ResidentBookmark.Pages.Error.Staging
 
         private IConfiguration _configuration;
 
-        private IDatabaseService _database;
+        private IDatabaseConnection _database;
 
         public string RequestId { get; set; }
 
@@ -25,7 +25,7 @@ namespace ResidentBookmark.Pages.Error.Staging
         
         public bool ShowMySqlExeptionMessage => !string.IsNullOrEmpty(MySqlExeptionMessage);
 
-        public ErrorModel(IConfiguration configuration, IDatabaseService database)
+        public ErrorModel(IConfiguration configuration, IDatabaseConnection database)
         {
             _configuration = configuration;
             _database = database;

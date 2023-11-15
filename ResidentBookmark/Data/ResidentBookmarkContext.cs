@@ -4,18 +4,19 @@ namespace ResidentBookmark.Data
     {
         private IConfiguration _configuration;
         
-        private IDatabaseService _database;
+        private IDatabaseConnection _database;
 
-        public ResidentBookmarkContext(IConfiguration configuration, IDatabaseService database)
+        public ResidentBookmarkContext(IConfiguration configuration, IDatabaseConnection database)
         {
             _configuration = configuration;
             _database = database;
         }
 
         // The context has two DbSet properties. The DbSet classes maps to a table in the database.
-        public virtual DbSet<Website> Websites { get; set; }
 
         public virtual DbSet<Label> Labels { get; set; }
+        
+        public virtual DbSet<Website> Websites { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 
