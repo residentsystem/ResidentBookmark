@@ -8,17 +8,17 @@ namespace ResidentBookmark.Models
         public DateTime Date { get; set; }
 
         [Required, MaxLength(50)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [Required, MaxLength(200), RegularExpression("(\b(https?|ftp|file)://)?[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]")]
-        public string Location { get; set; }
+        public string? Location { get; set; }
 
         [Required, MaxLength(60)]
-        public string Note { get; set; }
+        public string? Note { get; set; }
 
         public int LabelId { get; set; }
 
         //Navigational Property
-        public virtual Label Label { get; set; }
+        public virtual Label? Label { get; set; }
     }
 }

@@ -4,19 +4,19 @@ namespace ResidentBookmark.Pages
     {
         public string PageTitle = "Resident Bookmark - Edit Website";
 
-        private readonly ResidentBookmarkContext _context;
+        private readonly BookmarkContext database;
 
         [BindProperty]
-        public Website Website { get; set; }
+        public Website? Website { get; set; }
 
         public int LabelId { get; set; } 
 
         [TempData]
-        public string Message { get; set; }
+        public string? Message { get; set; }
 
-        public EditWebsiteModel (ResidentBookmarkContext context)
+        public EditWebsiteModel (BookmarkContext database)
         {
-            _context = context;
+            this.database = database;
         }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -27,7 +27,7 @@ namespace ResidentBookmark.Pages
             }
 
             // Retrieve the first website related to specified id. Return an exception if the website is not found. 
-            Website = await _context.Websites.FirstOrDefaultAsync(w => w.WebsiteId == id);
+            Website = await database.Websites.FirstOrDefaultAsync(w => w.WebsiteId == id);
 
             if (Website == null)
             {
@@ -43,14 +43,17 @@ namespace ResidentBookmark.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            Website.Date = DateTime.Now;
+            if (Website != null)
+            {
+                Website.Date = DateTime.Now;
 
-            _context.Websites.Attach(Website).State = EntityState.Modified;
-            _context.Websites.Update(Website);
+                database.Websites.Attach(Website).State = EntityState.Modified;
+                database.Websites.Update(Website);
+            }
 
             // Retrieve the task result that represent the number of state entries written to the database. 
             // Expecting one entry to be saved, otherwise throw an exception.
-            int savechangeid = await _context.SaveChangesAsync();
+            int savechangeid = await database.SaveChangesAsync();
 
             if (savechangeid != 1)
             {

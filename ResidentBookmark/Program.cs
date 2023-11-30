@@ -10,7 +10,7 @@ builder.Configuration.AddJsonFile("bookmarksettings.json");
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Services.AddDbContext<ResidentBookmarkContext>();
+builder.Services.AddDbContext<BookmarkContext>();
 
 builder.Services.AddSingleton<IDatabaseConnection, DatabaseConnection>();
 builder.Services.AddSingleton<ISettingService, SettingService>();

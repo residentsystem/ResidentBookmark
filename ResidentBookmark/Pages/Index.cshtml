@@ -43,7 +43,7 @@
                 @foreach (var website in Model.ListOfAllWebsites.Take(Model.Settings.ShowLimit))
                 {
                     <div class="box-website-label">
-                        <a asp-page="/Label" asp-page-handler="@website.Label.Name">@website.Label.Name</a>
+                        <a asp-page="/Label" asp-page-handler="@website.Label?.Name">@website.Label?.Name</a>
                     </div>
                     <div class="box-website">
                         <h3>@website.Name</h3>

@@ -13,62 +13,70 @@ namespace ResidentBookmark.Services
 
         public Setting GetBookmarkSettings()
         {
-            // Bind the content of default configuration file "appsettings.json" to an instance of BookmarkSettings. 
-            Setting settings = _configuration.GetSection("BookmarkSettings").Get<Setting>();
+            // Bind the content of default configuration file "bookmarkSettings.json" to an instance of BookmarkSettings. 
+            Setting? settings = _configuration.GetSection("BookmarkSettings").Get<Setting>();
 
-            if (!TestTitleSetting(settings.Title))
+            /* Test Title */
+
+            if (!(settings?.Title is string))
             {
-                //throw new TitleNullReferenceException();
-                settings.Title = "No Title";
-                return settings;
+                throw new TitleNullReferenceException();
             }
-            else if (!TestShowLimitSetting(settings.ShowLimit))
+
+            if (string.IsNullOrEmpty(settings?.Title))
+            {
+                if (settings != null)
+                settings.Title = "No Name";
+            }
+
+            /* Test ShowLimit */
+
+            if (!(settings?.ShowLimit is int))
             {
                 throw new ShowLimitNullReferenceException();
             }
-            else if (!TestSortWebsiteSetting(settings.SortWebsite))
+
+            if (string.IsNullOrEmpty(settings.ShowLimit.ToString()))
             {
-                throw new SortWebsiteNullReferenceException();
+                settings.ShowLimit = 1;
             }
-            else
+
+            if (settings.ShowLimit < 1)
             {
-                return settings;
+                settings.ShowLimit = 1;
             }
+            else if (settings.ShowLimit > 20)
+            {
+                settings.ShowLimit = 20;
+            }
+
+            /* Test SortWebsite */
+
+            if (!TestSortWebsiteSetting(settings.SortWebsite))
+            {
+                //throw new SortWebsiteNullReferenceException();
+                settings.SortWebsite = "date";
+            }
+
+            return settings;
         }
 
-        public bool TestTitleSetting(string title)
+        public bool TestSortWebsiteSetting(string? sortwebsite)
         {
-            if (string.IsNullOrEmpty(title))
+            if (string.IsNullOrEmpty(sortwebsite))
             {
                 return false;
             }
-            else
+
+            else if (sortwebsite.Equals("date"))
             {
                 return true;
             }
-        }
-
-        public bool TestShowLimitSetting(int showlimit)
-        {
-            return showlimit.Equals(0) ? false : true;
-        }
-
-        public bool TestSortWebsiteSetting(Dictionary<string, string> sortwebsite)
-        {
-
-            if (sortwebsite.Count == 0)
-            {
-                return false;
-            }
-            else if (sortwebsite["date"].Equals("date"))
+            else if (sortwebsite.Equals("website"))
             {
                 return true;
             }
-            else if (sortwebsite["website"].Equals("website"))
-            {
-                return true;
-            }
-            else if (sortwebsite["label"].Equals("label"))
+            else if (sortwebsite.Equals("label"))
             {
                 return true;
             }

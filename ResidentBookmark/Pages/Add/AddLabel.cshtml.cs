@@ -4,18 +4,18 @@ namespace ResidentBookmark.Pages
     {
         public string PageTitle = "Resident Bookmark - Add Label";
 
-        private readonly ResidentBookmarkContext _context;
+        private readonly BookmarkContext database;
 
         // Bind variable with properties of the Label model class.
         [BindProperty]
-        public Label Label { get; set; }
+        public Label? Label { get; set; }
 
         [TempData]
-        public string Message { get; set; }
+        public string? Message { get; set; }
 
-        public AddLabelModel (ResidentBookmarkContext context)
+        public AddLabelModel (BookmarkContext database)
         {
-            _context = context;
+            this.database = database;
         }
 
         public void OnGet()
@@ -30,8 +30,12 @@ namespace ResidentBookmark.Pages
                 return Page();
             }
 
-            await _context.Labels.AddAsync(Label);
-            await _context.SaveChangesAsync();
+            if (Label != null)
+            {
+                await database.Labels.AddAsync(Label);
+            }
+
+            await database.SaveChangesAsync();
 
             return RedirectToPage("../Index");
         }

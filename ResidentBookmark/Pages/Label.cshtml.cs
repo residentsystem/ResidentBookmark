@@ -4,27 +4,27 @@ namespace ResidentBookmark.Pages
     {
         public string PageTitle = "Resident Bookmark - Labels";       
         
-        private readonly ResidentBookmarkContext _context;
+        private readonly BookmarkContext database;
 
         public List<Website> ListOfWebsitesFromLabels { get; set; } = new List<Website>();
 
         public List<KeyValuePair<string, int>> ListOfLabelsWebsiteCount = new List<KeyValuePair<string, int>>();
 
-        public string QueryString { get; set; }
+        public string? QueryString { get; set; }
 
-        public string LabelDescription { get; set; }
+        public string? LabelDescription { get; set; }
 
-        public string SortOptionQueryString { get; set; }
+        public string? SortOptionQueryString { get; set; }
 
-        public string LabelEmptyMessage { get; set; }
+        public string? LabelEmptyMessage { get; set; }
         
         public bool ShowLabelEmptyMessage => !string.IsNullOrEmpty(LabelEmptyMessage);
 
         public int NumberOfWebsites { get; set; }
 
-        public LabelModel (ResidentBookmarkContext context)
+        public LabelModel (BookmarkContext database)
         {
-            _context = context;
+            this.database = database;
         }
 
         public async Task OnGet()
@@ -35,10 +35,10 @@ namespace ResidentBookmark.Pages
             QueryService query = new QueryService();
 
             // Retrieve label description.
-            LabelDescription = await query.RetrieveLabelDescriptionFromQueryString(_context, QueryString);
+            LabelDescription = await query.RetrieveLabelDescriptionFromQueryString(database, QueryString);
 
             // Retrieve and get count of all websites attached to a label.
-            ListOfWebsitesFromLabels = await query.RetrieveWebsitesFromLabelName(_context, QueryString);
+            ListOfWebsitesFromLabels = await query.RetrieveWebsitesFromLabelName(database, QueryString);
             NumberOfWebsites = ListOfWebsitesFromLabels.Count();
 
             // Store label and associated amount of websites as key/value pairs.

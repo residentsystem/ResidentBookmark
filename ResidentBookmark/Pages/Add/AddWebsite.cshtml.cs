@@ -4,25 +4,25 @@ namespace ResidentBookmark.Pages
     {
         public string PageTitle = "Resident Bookmark - Add Website";
 
-        private readonly ResidentBookmarkContext _context;
+        private readonly BookmarkContext database;
 
         // Bind variable with properties of the Website model class.
         [BindProperty]
-        public Website Website { get; set; }
+        public Website? Website { get; set; }
 
-        public string QueryString { get; set; }
+        public string? QueryString { get; set; }
 
         public int LabelId;
 
         [TempData]
-        public string Message { get; set; }
+        public string? Message { get; set; }
 
         // Get the current date to be sent as part of the page form.
         public string Date = DateTime.Now.ToString("MM/dd/yyyy");
 
-        public AddWebsiteModel (ResidentBookmarkContext context)
+        public AddWebsiteModel (BookmarkContext database)
         {
-            _context = context;
+            this.database = database;
         }
 
         public async Task OnGetAsync()
@@ -32,7 +32,7 @@ namespace ResidentBookmark.Pages
 
             // Retrieve id of the label contained in the querystring.
             QueryService query = new QueryService();
-            LabelId = await query.RetrieveLabelIdFromQueryString(_context, QueryString);
+            LabelId = await query.RetrieveLabelIdFromQueryString(database, QueryString);
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -42,8 +42,11 @@ namespace ResidentBookmark.Pages
                 return Page();
             }
 
-            await _context.Websites.AddAsync(Website);
-            await _context.SaveChangesAsync();
+            if (Website != null)
+            {
+                await database.Websites.AddAsync(Website);
+                await database.SaveChangesAsync();
+            }
 
             return RedirectToPage("../Index");
         }

@@ -4,19 +4,19 @@ namespace ResidentBookmark.Pages
     {
         public string PageTitle = "Resident Bookmark - Edit Label";
 
-        private readonly ResidentBookmarkContext _context;
+        private readonly BookmarkContext database;
 
         [BindProperty]
-        public Label Label { get; set; }
+        public Label? Label { get; set; }
 
         public int LabelId { get; set; } 
 
         [TempData]
-        public string Message { get; set; }
+        public string? Message { get; set; }
 
-        public EditLabelModel (ResidentBookmarkContext context)
+        public EditLabelModel (BookmarkContext database)
         {
-            _context = context;
+            this.database = database;
         }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -27,7 +27,7 @@ namespace ResidentBookmark.Pages
             }
 
             // Retrieve the first label related to specified id. Return an exception if the label is not found. 
-            Label = await _context.Labels.FirstOrDefaultAsync(l => l.LabelId == id);
+            Label = await database.Labels.FirstOrDefaultAsync(l => l.LabelId == id);
 
             if (Label == null)
             {
@@ -43,12 +43,15 @@ namespace ResidentBookmark.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            _context.Labels.Attach(Label).State = EntityState.Modified;
-            _context.Labels.Update(Label);
+            if (Label != null)
+            {
+                database.Labels.Attach(Label).State = EntityState.Modified;
+                database.Labels.Update(Label);
+            }
 
             // Retrieve the task result that represent the number of state entries written to the database. 
             // Expecting one entry to be saved, otherwise throw an exception.
-            int savechangeid = await _context.SaveChangesAsync();
+            int savechangeid = await database.SaveChangesAsync();
 
             if (savechangeid != 1)
             {

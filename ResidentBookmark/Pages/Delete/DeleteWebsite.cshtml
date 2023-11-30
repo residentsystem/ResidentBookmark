@@ -7,7 +7,7 @@
     <section class="row col-sm-12">
         <article class="col-sm-12 col-md-12 col-lg-12">
             <header>
-                <h1>Delete Website - @Model.Website.Name</h1>
+                <h1>Delete Website - @Model.Website?.Name</h1>
             </header>
         </article>
     </section>
@@ -22,10 +22,10 @@
                 <hr />
                 <div class="box-website">
 
-                    <h3>@Model.Website.Name</h3>
-                        <a href="@Model.Website.Location" target="_blank">@Model.Website.Location</a>
-                        <p>@Model.Website.Note</p>
-                        <p>@Model.Website.Date.ToString("MM/dd/yyyy")</p>
+                    <h3>@Model.Website?.Name</h3>
+                        <a href="@Model.Website?.Location" target="_blank">@Model.Website?.Location</a>
+                        <p>@Model.Website?.Note</p>
+                        <p>@Model.Website?.Date.ToString("MM/dd/yyyy")</p>
 
                     </div>
                     <div class="box-website-menu">

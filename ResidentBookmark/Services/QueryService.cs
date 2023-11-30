@@ -2,9 +2,9 @@ namespace ResidentBookmark.Services
 {
     public class QueryService
     {
-        public async Task<List<Label>> RetrieveAllLabels(ResidentBookmarkContext context)
+        public async Task<List<Label>> RetrieveAllLabels(BookmarkContext database)
         {
-            List<Label> labels = await context.Labels.ToListAsync();
+            List<Label> labels = await database.Labels.ToListAsync();
 
             if (labels == null)
             {
@@ -16,9 +16,9 @@ namespace ResidentBookmark.Services
             }
         }
 
-        public async Task<List<Website>> RetrieveAllWebsitesIncludeLabel(ResidentBookmarkContext context)
+        public async Task<List<Website>> RetrieveAllWebsitesIncludeLabel(BookmarkContext database)
         {
-            List<Website> websites = await context.Websites.Include(Website => Website.Label).ToListAsync();
+            List<Website> websites = await database.Websites.Include(Website => Website.Label).ToListAsync();
 
             if (websites == null)
             {
@@ -30,9 +30,9 @@ namespace ResidentBookmark.Services
             }
         }
 
-        public async Task<List<Website>> RetrieveWebsitesFromLabelName(ResidentBookmarkContext context, string querystring)
+        public async Task<List<Website>> RetrieveWebsitesFromLabelName(BookmarkContext database, string querystring)
         {
-            List<Website> websites = await context.Websites.Where(l => l.Label.Name == querystring)
+            List<Website> websites = await database.Websites.Where(l => l.Label != null && l.Label.Name == querystring)
             .Include(l => l.Label)
             .ToListAsync();
 
@@ -46,9 +46,9 @@ namespace ResidentBookmark.Services
             }
         }
 
-        public async Task<int> RetrieveLabelIdFromQueryString(ResidentBookmarkContext context, string querystring)
+        public async Task<int> RetrieveLabelIdFromQueryString(BookmarkContext database, string querystring)
         {
-            Label label = await context.Labels.Where(l => l.Name == querystring).SingleAsync();
+            Label label = await database.Labels.Where(l => l.Name == querystring).SingleAsync();
 
             if (label == null)
             {
@@ -60,17 +60,17 @@ namespace ResidentBookmark.Services
             }
         }
 
-        public async Task<string> RetrieveLabelDescriptionFromQueryString(ResidentBookmarkContext context, string querystring)
+        public async Task<string> RetrieveLabelDescriptionFromQueryString(BookmarkContext database, string querystring)
         {
-            Label label = await context.Labels.Where(l => l.Name == querystring).SingleAsync();
+            Label label = await database.Labels.Where(l => l.Name == querystring).SingleAsync();
 
-            if (label == null)
+            if (label.Description != null)
             {
-                throw new FindInvalidOperationException();
+                return await Task.FromResult<string>(label.Description);
             }
             else 
             {
-                return await Task.FromResult<string>(label.Description);
+                throw new FindInvalidOperationException();
             }
         }
     }

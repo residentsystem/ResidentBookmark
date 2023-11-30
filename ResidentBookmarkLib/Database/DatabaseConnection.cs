@@ -6,9 +6,9 @@ namespace ResidentBookmarkLib.Database
 
         private IWebHostEnvironment _environment;
 
-        private MySqlConnection connection;
+        private MySqlConnection? connection;
         
-        public string Message { get; set; }
+        public string? Message { get; set; }
 
         public DatabaseConnection(IConfiguration configuration, IWebHostEnvironment environment)
         {
@@ -18,7 +18,7 @@ namespace ResidentBookmarkLib.Database
 
         // Retrieve connection string from environment variable
 
-        public string GetConnectionString()
+        public string? GetConnectionString()
         {
             if (_environment.IsDevelopment()) {
                 return Environment.GetEnvironmentVariable("CONNSTR_BOOKMARK_DEV");
@@ -33,7 +33,7 @@ namespace ResidentBookmarkLib.Database
 
         // Retrieve connection string from configuration file to be used based on current environment
 
-        public string GetConnectionString(DatabaseEnvironment connectionstring)
+        public string? GetConnectionString(DatabaseEnvironment connectionstring)
         {
             if (_environment.IsDevelopment()) {
                 return connectionstring.Development;
@@ -46,7 +46,7 @@ namespace ResidentBookmarkLib.Database
             }
         }
 
-        public string MySqlConnectionStatus(string connectionstring)
+        public string? MySqlConnectionStatus(string? connectionstring)
         {
             try
             {

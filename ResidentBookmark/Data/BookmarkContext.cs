@@ -1,27 +1,20 @@
 namespace ResidentBookmark.Data
 {
-    public partial class ResidentBookmarkContext : DbContext
+    public partial class BookmarkContext : DbContext
     {
-        private IConfiguration _configuration;
         
         private IDatabaseConnection _database;
 
-        public ResidentBookmarkContext(IConfiguration configuration, IDatabaseConnection database)
+        public BookmarkContext(IDatabaseConnection database)
         {
-            _configuration = configuration;
             _database = database;
         }
-
-        // The context has two DbSet properties. The DbSet classes maps to a table in the database.
 
         public virtual DbSet<Label> Labels { get; set; }
         
         public virtual DbSet<Website> Websites { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-
-            // Bind the content of default configuration file "bookmarksettings.json" to an instance of DatabaseSettings. 
-            //DatabaseEnvironment connectionstring = _configuration.GetSection("ConnectionString").Get<DatabaseEnvironment>();
 
             optionsBuilder.UseMySql(_database.GetConnectionString(), new MySqlServerVersion(new Version(8, 0, 19)));
         }

@@ -9,19 +9,19 @@ namespace ResidentBookmark.Pages.Error.Staging
 
         private IDatabaseConnection _database;
 
-        public string RequestId { get; set; }
+        public string? RequestId { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
-        public string Referrer { get; set; }
+        public string? Referrer { get; set; }
 
         public bool ShowReferrer => !string.IsNullOrEmpty(Referrer); 
 
-        public string ExceptionMessage { get; set; }
+        public string? ExceptionMessage { get; set; }
 
         public bool ShowExceptionMessage => !string.IsNullOrEmpty(ExceptionMessage);
 
-        public string MySqlExeptionMessage { get; set; }
+        public string? MySqlExeptionMessage { get; set; }
         
         public bool ShowMySqlExeptionMessage => !string.IsNullOrEmpty(MySqlExeptionMessage);
 

@@ -5,12 +5,12 @@ namespace ResidentBookmark.Models
         public int LabelId { get; set; }
 
         [Required, MaxLength(50)]
-        public string Name { get; set; } 
+        public string? Name { get; set; }
 
         [Required, MaxLength(60)]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         //Navigational Property
-        public virtual List<Website> Websites { get; set; } = new List<Website>();
+        public virtual List<Website>? Websites { get; set; }
     }
 }

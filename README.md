@@ -111,7 +111,7 @@ The application is already configured to use SQLite and the database file alread
 
 > \\> cd C:\ResidentSystem\ResidentSystemApp\ResidentBookmark
 
-2. Open Data\ResidentBookmarkContext.cs and uncomment the optionsBuilder that use MySQL. Remove the double "/" in front of each lines so it look like this:
+2. Open Data\BookmarkContext.cs and uncomment the optionsBuilder that use MySQL. Remove the double "/" in front of each lines so it look like this:
 
 > optionsBuilder.UseMySql(_database.GetConnectionString(),
 > new MySqlServerVersion(new Version(8, 0, 19)), 

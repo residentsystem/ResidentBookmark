@@ -7,7 +7,7 @@
     <section class="row col-sm-12">
         <article class="col-sm-12 col-md-12 col-lg-12">
             <header>
-                <h1>Delete Label - @Model.Label.Name</h1>
+                <h1>Delete Label - @Model.Label?.Name</h1>
             </header>
         </article>
     </section>
@@ -21,8 +21,8 @@
                 <p>Deleting this label will also remove all websites attached to it!</p>
                 <hr />
                 <div class="box-website">
-                    <h3>@Model.Label.Name</h3>
-                    <p>@Model.Label.Description</p>
+                    <h3>@Model.Label?.Name</h3>
+                    <p>@Model.Label?.Description</p>
                 </div>
                 <div class="box-website-menu">       
                     <form method="post">

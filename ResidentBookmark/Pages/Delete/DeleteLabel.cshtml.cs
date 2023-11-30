@@ -14,18 +14,18 @@ namespace ResidentBookmark.Pages
     {
         public string PageTitle = "Resident Bookmark - Delete Label";
 
-        private readonly ResidentBookmarkContext _context;
+        private readonly BookmarkContext database;
 
         // Bind variable with properties of the Label model class.
         [BindProperty]
-        public Label Label { get; set; }
+        public Label? Label { get; set; }
 
         [TempData]
-        public string Message { get; set; }
+        public string? Message { get; set; }
 
-        public DeleteLabelModel (ResidentBookmarkContext context)
+        public DeleteLabelModel (BookmarkContext database)
         {
-            _context = context;
+            this.database = database;
         }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -36,7 +36,7 @@ namespace ResidentBookmark.Pages
             }
 
             // Retrieve the first label related to specified id. Return an exception if the label is not found. 
-            Label = await _context.Labels.FirstOrDefaultAsync(w => w.LabelId == id);
+            Label = await database.Labels.FirstOrDefaultAsync(w => w.LabelId == id);
 
             if (Label == null)
             {
@@ -55,7 +55,7 @@ namespace ResidentBookmark.Pages
 
             // Retrieve a single label to be removed related to specified id, including all related websites. 
             // Return an exception if the label is not found. 
-            Label = _context.Labels.Include(w => w.Websites).SingleOrDefault(l => l.LabelId == id);
+            Label = database.Labels.Include(w => w.Websites).SingleOrDefault(l => l.LabelId == id);
 
             if (Label == null)
             {
@@ -63,8 +63,8 @@ namespace ResidentBookmark.Pages
             }
             else
             {
-                _context.Remove(Label);
-                await _context.SaveChangesAsync();
+                database.Remove(Label);
+                await database.SaveChangesAsync();
 
                 return RedirectToPage("../Index");
             }
